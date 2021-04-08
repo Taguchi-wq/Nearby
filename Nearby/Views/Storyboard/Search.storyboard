@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -45,18 +46,45 @@
                                     <constraint firstAttribute="height" constant="30" id="2Ky-xw-WXD"/>
                                 </constraints>
                             </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="M9t-sD-d3I">
+                                <rect key="frame" x="0.0" y="84" width="414" height="729"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FAn-qp-2hs">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BlJ-9E-WLC">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2WJ-Di-LhE">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nCc-UV-vjw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="t2y-t0-mtO" firstAttribute="top" secondItem="nCc-UV-vjw" secondAttribute="top" constant="10" id="KAZ-ZY-Mej"/>
                             <constraint firstItem="t2y-t0-mtO" firstAttribute="leading" secondItem="nCc-UV-vjw" secondAttribute="leading" constant="10" id="gba-Cu-b8c"/>
+                            <constraint firstItem="M9t-sD-d3I" firstAttribute="top" secondItem="t2y-t0-mtO" secondAttribute="bottom" id="ghT-8B-oDD"/>
                             <constraint firstItem="nCc-UV-vjw" firstAttribute="trailing" secondItem="t2y-t0-mtO" secondAttribute="trailing" constant="10" id="hOK-ji-h6Z"/>
+                            <constraint firstItem="M9t-sD-d3I" firstAttribute="leading" secondItem="nCc-UV-vjw" secondAttribute="leading" id="nps-yP-pDt"/>
+                            <constraint firstItem="M9t-sD-d3I" firstAttribute="trailing" secondItem="nCc-UV-vjw" secondAttribute="trailing" id="pF7-8Y-A3O"/>
+                            <constraint firstItem="M9t-sD-d3I" firstAttribute="bottom" secondItem="nCc-UV-vjw" secondAttribute="bottom" id="r6P-3i-g9G"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="q7g-Q3-R0Q"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="categoryCollectionView" destination="M9t-sD-d3I" id="ga0-T6-vEZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2N1-sy-nBT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
