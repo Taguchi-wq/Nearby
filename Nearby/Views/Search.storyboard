@@ -15,19 +15,57 @@
                     <view key="view" contentMode="scaleToFill" id="J1c-cY-mAi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="t2y-t0-mtO">
+                                <rect key="frame" x="10" y="54" width="394" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RuX-bS-wIH">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="MMR-vd-TEx"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.76832443480000001" green="0.76915180679999995" blue="0.77660876509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="magnifyingglass" catalog="system"/>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="検索" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SDR-Ty-Nn7">
+                                        <rect key="frame" x="35" y="0.0" width="332" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfS-Zb-4f0">
+                                        <rect key="frame" x="372" y="0.0" width="22" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="mrB-TJ-6QN"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="slider.horizontal.3" catalog="system"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2Ky-xw-WXD"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="nCc-UV-vjw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="t2y-t0-mtO" firstAttribute="top" secondItem="nCc-UV-vjw" secondAttribute="top" constant="10" id="KAZ-ZY-Mej"/>
+                            <constraint firstItem="t2y-t0-mtO" firstAttribute="leading" secondItem="nCc-UV-vjw" secondAttribute="leading" constant="10" id="gba-Cu-b8c"/>
+                            <constraint firstItem="nCc-UV-vjw" firstAttribute="trailing" secondItem="t2y-t0-mtO" secondAttribute="trailing" constant="10" id="hOK-ji-h6Z"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" selectedImage="magnifyingglass" catalog="system" systemItem="search" id="L7S-3G-qis"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="q7g-Q3-R0Q"/>
+                    <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2N1-sy-nBT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="246" y="76"/>
+            <point key="canvasLocation" x="1155.072463768116" y="75.669642857142847"/>
         </scene>
     </scenes>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
