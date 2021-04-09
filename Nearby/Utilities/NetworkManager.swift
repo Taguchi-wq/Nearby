@@ -24,10 +24,12 @@ struct NetworkManager {
     // MARK: - Methods
     /// 店舗のデータを取得する
     /// - Parameters:
-    ///   - shop: 店舗名
+    ///   - keyword: 検索キーワード
+    ///   - latitude: 店舗の緯度
+    ///   - longitude: 店舗の経度
     ///   - completion: 処理終了後
-    func getShop(_ keyword: String, completion: @escaping (Result<SearchResponse, ClientError>) -> Void) {
-        let hotPepperURL = baseURL + path + apiKey + "&keyword=\(keyword)&lat=35.690921&lng=139.70025799999996&format=json"
+    func getShop(_ keyword: String, latitude: Double, longitude: Double, completion: @escaping (Result<[Shop], ClientError>) -> Void) {
+        let hotPepperURL = baseURL + path + apiKey + "&keyword=\(keyword)&lat=\(latitude)&lng=\(longitude)&format=json"
         let encodeURL = hotPepperURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         
         // URLが存在しなかった時の処理
@@ -62,8 +64,9 @@ struct NetworkManager {
                 // スネークケースをキャメルケースに変換
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 
-                let shops = try decoder.decode(SearchResponse.self, from: data)
-                if shops.results.shop.isEmpty {
+                let searchResponse = try decoder.decode(SearchResponse.self, from: data)
+                let shops = searchResponse.results.shop
+                if shops.isEmpty {
                     completion(.failure(.invalidShop))
                 } else {
                     completion(.success(shops))
