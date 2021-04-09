@@ -29,14 +29,14 @@
                                         <state key="normal" image="magnifyingglass" catalog="system"/>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="検索" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SDR-Ty-Nn7">
-                                        <rect key="frame" x="35" y="0.0" width="332" height="30"/>
+                                        <rect key="frame" x="35" y="0.0" width="319" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfS-Zb-4f0">
-                                        <rect key="frame" x="372" y="0.0" width="22" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfS-Zb-4f0">
+                                        <rect key="frame" x="359" y="0.0" width="35" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="22" id="mrB-TJ-6QN"/>
+                                            <constraint firstAttribute="width" constant="35" id="mrB-TJ-6QN"/>
                                         </constraints>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="slider.horizontal.3" catalog="system"/>
