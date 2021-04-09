@@ -36,6 +36,12 @@ class SearchViewController: UIViewController {
         initialize()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     /// SearchViewControllerを初期化する
     private func initialize() {
         setupCollectionView(categoryCollectionView)

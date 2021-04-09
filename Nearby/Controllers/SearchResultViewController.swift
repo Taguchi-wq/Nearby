@@ -37,6 +37,12 @@ class SearchResultViewController: UIViewController {
         displayShops()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     /// SearchResultViewControllerの初期化をする
     /// - Parameter keyword: 検索したキーワード
     func initialize(keyword: String) {
