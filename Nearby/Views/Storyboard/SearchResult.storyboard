@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oo6-8j-5py">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Result View Controller-->
+        <scene sceneID="XT9-ih-Ndv">
+            <objects>
+                <viewController storyboardIdentifier="SearchResultViewController" id="oo6-8j-5py" customClass="SearchResultViewController" customModule="Nearby" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lcl-3i-w8b">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="clJ-Hk-AjE">
+                                <rect key="frame" x="10" y="54" width="394" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fug-qs-e4D">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="fQ7-Hw-40x"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="arrow.left" catalog="system"/>
+                                        <connections>
+                                            <action selector="back:" destination="oo6-8j-5py" eventType="touchUpInside" id="QSr-7K-HVq"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="検索" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xmj-Ai-1MN">
+                                        <rect key="frame" x="40" y="0.0" width="314" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrv-31-Rnu">
+                                        <rect key="frame" x="359" y="0.0" width="35" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="d84-dP-rgf"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="slider.horizontal.3" catalog="system"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8f1-D3-Ugf"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Car-Ec-RNy"/>
+                                </constraints>
+                            </stackView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MFB-81-3Wi">
+                                <rect key="frame" x="0.0" y="92" width="414" height="804"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YKC-Ho-Suy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MFB-81-3Wi" firstAttribute="trailing" secondItem="YKC-Ho-Suy" secondAttribute="trailing" id="G06-dY-fTv"/>
+                            <constraint firstItem="clJ-Hk-AjE" firstAttribute="leading" secondItem="YKC-Ho-Suy" secondAttribute="leading" constant="10" id="Ha2-Ra-9Dn"/>
+                            <constraint firstItem="clJ-Hk-AjE" firstAttribute="top" secondItem="YKC-Ho-Suy" secondAttribute="top" constant="10" id="Pj3-JD-KUS"/>
+                            <constraint firstAttribute="bottom" secondItem="MFB-81-3Wi" secondAttribute="bottom" id="exh-ul-Al5"/>
+                            <constraint firstItem="YKC-Ho-Suy" firstAttribute="trailing" secondItem="clJ-Hk-AjE" secondAttribute="trailing" constant="10" id="kpO-WB-6OW"/>
+                            <constraint firstItem="MFB-81-3Wi" firstAttribute="leading" secondItem="YKC-Ho-Suy" secondAttribute="leading" id="oLb-ql-RzE"/>
+                            <constraint firstItem="MFB-81-3Wi" firstAttribute="top" secondItem="clJ-Hk-AjE" secondAttribute="bottom" constant="8" id="yuz-E4-5Vu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="u4p-fH-u5B"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="Xmj-Ai-1MN" id="b8g-hV-HRk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9bT-Ld-zHC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028.985507246377" y="124.55357142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

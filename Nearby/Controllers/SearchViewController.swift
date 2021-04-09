@@ -142,4 +142,9 @@ extension SearchViewController: UICollectionViewDataSource {
 
 
 // MARK: - UICollectionViewDelegate
-extension SearchViewController: UICollectionViewDelegate {}
+extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let searchResultViewController = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.reuseIdentifier) as! SearchResultViewController
+        navigationController?.pushViewController(searchResultViewController, animated: true)
+    }
+}
