@@ -23,8 +23,10 @@ class SearchViewController: UIViewController {
     
     
     // MARK: - Propertys
+    /// 条件
+    private let conditions = ["500m", "クーポンあり"]
     /// カテゴリー
-    private let categorys = ["ハンバーガー", "ラーメン", "寿司", "中華料理", "居酒屋", "焼肉", "カフェ", "イタリアン", "海鮮料理"]
+    private let categorys = ["ハンバーガー", "ラーメン", "寿司", "中華料理", "居酒屋", "焼肉", "コーヒー", "イタリアン", "デザート"]
     
     
     // MAEK: - Methods
@@ -127,9 +129,11 @@ extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             let conditionCell = collectionView.dequeueReusableCell(withReuseIdentifier: ConditionCell.reuseIdentifier, for: indexPath) as! ConditionCell
+            conditionCell.initialize(condition: conditions[indexPath.row])
             return conditionCell
         } else {
             let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseIdentifier, for: indexPath) as! CategoryCell
+            categoryCell.initialize(imageName: categorys[indexPath.row])
             return categoryCell
         }
     }

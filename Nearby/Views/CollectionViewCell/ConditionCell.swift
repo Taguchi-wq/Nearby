@@ -17,13 +17,12 @@ class ConditionCell: UICollectionViewCell {
     // MARK: - Methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        initialize()
     }
     
     /// ConditionCellを初期化する
-    private func initialize() {
-        layer.cornerRadius = 10
+    func initialize(condition: String) {
+        conditionLabel.text = condition
+        layer.cornerRadius  = 10
     }
     
 }

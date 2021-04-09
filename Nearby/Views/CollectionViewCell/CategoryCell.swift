@@ -17,13 +17,12 @@ class CategoryCell: UICollectionViewCell {
     // MARK: - Methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        initialize()
     }
     
     /// CategoryCellを初期化する
-    private func initialize() {
-        layer.cornerRadius = 10
+    func initialize(imageName: String) {
+        categoryImageView.image = UIImage(named: imageName)
+        layer.cornerRadius      = 10
     }
 
 }
