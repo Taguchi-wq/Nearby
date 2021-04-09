@@ -67,6 +67,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="u4p-fH-u5B"/>
                     <connections>
+                        <outlet property="mapView" destination="MFB-81-3Wi" id="ICv-oy-cPu"/>
                         <outlet property="searchTextField" destination="Xmj-Ai-1MN" id="b8g-hV-HRk"/>
                     </connections>
                 </viewController>
