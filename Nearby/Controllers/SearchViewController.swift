@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
     /// 条件
     private let conditions = ["500m", "クーポンあり"]
     /// カテゴリー
-    private let categorys = ["ハンバーガー", "ラーメン", "寿司", "中華料理", "居酒屋", "焼肉", "コーヒー", "イタリアン", "デザート"]
+    private let categorys = ["ハンバーガー", "ラーメン", "寿司", "中華料理", "居酒屋", "焼肉", "カフェ", "イタリアン", "デザート"]
     
     
     // MAEK: - Methods
@@ -145,6 +145,7 @@ extension SearchViewController: UICollectionViewDataSource {
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let searchResultViewController = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.reuseIdentifier) as! SearchResultViewController
+        searchResultViewController.initialize(keyword: categorys[indexPath.row])
         navigationController?.pushViewController(searchResultViewController, animated: true)
     }
 }
