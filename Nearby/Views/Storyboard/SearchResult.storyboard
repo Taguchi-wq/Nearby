@@ -97,11 +97,22 @@
                         <outlet property="mapView" destination="MFB-81-3Wi" id="ICv-oy-cPu"/>
                         <outlet property="searchTextField" destination="Xmj-Ai-1MN" id="b8g-hV-HRk"/>
                         <outlet property="shopsCollectionView" destination="42C-qC-jcb" id="afx-CB-JnG"/>
+                        <segue destination="RpT-ni-ext" kind="show" id="TAS-Z9-cNF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bT-Ld-zHC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1028.985507246377" y="124.55357142857142"/>
+        </scene>
+        <!--ShopDetail-->
+        <scene sceneID="Mao-mO-V3i">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ShopDetailViewController" storyboardName="ShopDetail" id="RpT-ni-ext" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jCm-Z5-Onr"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qVd-hM-jjv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1927" y="125"/>
         </scene>
     </scenes>
     <resources>

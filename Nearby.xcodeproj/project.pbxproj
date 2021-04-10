@@ -16,6 +16,12 @@
 		7F1779A8261FF51A000AAC18 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1779A7261FF51A000AAC18 /* Photo.swift */; };
 		7F1779B5261FF555000AAC18 /* Mobile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1779B4261FF555000AAC18 /* Mobile.swift */; };
 		7F1779BD261FFBF0000AAC18 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1779BC261FFBF0000AAC18 /* ClientError.swift */; };
+		7F3E8B602621EEC9003124DC /* ShopDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F3E8B5F2621EEC9003124DC /* ShopDetail.storyboard */; };
+		7F3E8B652621EF04003124DC /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E8B642621EF04003124DC /* ShopDetailViewController.swift */; };
+		7F3E8B712621F140003124DC /* ShopThumbnailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E8B6F2621F140003124DC /* ShopThumbnailCell.swift */; };
+		7F3E8B722621F140003124DC /* ShopThumbnailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3E8B702621F140003124DC /* ShopThumbnailCell.xib */; };
+		7F3E8B782621FB6D003124DC /* ShopNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E8B762621FB6D003124DC /* ShopNameCell.swift */; };
+		7F3E8B792621FB6D003124DC /* ShopNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3E8B772621FB6D003124DC /* ShopNameCell.xib */; };
 		7F82176F2621D51D0068ADD4 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82176E2621D51D0068ADD4 /* UIImageView+Extension.swift */; };
 		7FD49B08261ECC4E002F1823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD49B07261ECC4E002F1823 /* AppDelegate.swift */; };
 		7FD49B0A261ECC4E002F1823 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD49B09261ECC4E002F1823 /* SceneDelegate.swift */; };
@@ -63,6 +69,12 @@
 		7F1779A7261FF51A000AAC18 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		7F1779B4261FF555000AAC18 /* Mobile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobile.swift; sourceTree = "<group>"; };
 		7F1779BC261FFBF0000AAC18 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
+		7F3E8B5F2621EEC9003124DC /* ShopDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShopDetail.storyboard; sourceTree = "<group>"; };
+		7F3E8B642621EF04003124DC /* ShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
+		7F3E8B6F2621F140003124DC /* ShopThumbnailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopThumbnailCell.swift; sourceTree = "<group>"; };
+		7F3E8B702621F140003124DC /* ShopThumbnailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopThumbnailCell.xib; sourceTree = "<group>"; };
+		7F3E8B762621FB6D003124DC /* ShopNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopNameCell.swift; sourceTree = "<group>"; };
+		7F3E8B772621FB6D003124DC /* ShopNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopNameCell.xib; sourceTree = "<group>"; };
 		7F82176E2621D51D0068ADD4 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		7FD49B04261ECC4E002F1823 /* Nearby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nearby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD49B07261ECC4E002F1823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +227,7 @@
 		7FD78C29261EEAF600DE6DC1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7F3E8B642621EF04003124DC /* ShopDetailViewController.swift */,
 				7FD78C4B261EF19500DE6DC1 /* SearchViewController.swift */,
 				7F021934261FE8B300DC540C /* SearchResultViewController.swift */,
 			);
@@ -253,6 +266,7 @@
 			children = (
 				7FD49B12261ECC50002F1823 /* LaunchScreen.storyboard */,
 				7FD49B0D261ECC4E002F1823 /* Main.storyboard */,
+				7F3E8B5F2621EEC9003124DC /* ShopDetail.storyboard */,
 				7FD78C43261EF10E00DE6DC1 /* Search.storyboard */,
 				7F02193C261FE8CD00DC540C /* SearchResult.storyboard */,
 			);
@@ -268,6 +282,10 @@
 				7FD78C66261F3DF400DE6DC1 /* ConditionCell.xib */,
 				7FD4F9D62621964300B2E25F /* SearchResultShopCell.swift */,
 				7FD4F9D72621964300B2E25F /* SearchResultShopCell.xib */,
+				7F3E8B6F2621F140003124DC /* ShopThumbnailCell.swift */,
+				7F3E8B702621F140003124DC /* ShopThumbnailCell.xib */,
+				7F3E8B762621FB6D003124DC /* ShopNameCell.swift */,
+				7F3E8B772621FB6D003124DC /* ShopNameCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -389,7 +407,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F3E8B602621EEC9003124DC /* ShopDetail.storyboard in Resources */,
+				7F3E8B792621FB6D003124DC /* ShopNameCell.xib in Resources */,
 				7FD78C55261F04D400DE6DC1 /* CategoryCell.xib in Resources */,
+				7F3E8B722621F140003124DC /* ShopThumbnailCell.xib in Resources */,
 				7FD78C68261F3DF400DE6DC1 /* ConditionCell.xib in Resources */,
 				7F02193D261FE8CD00DC540C /* SearchResult.storyboard in Resources */,
 				7FD49B14261ECC50002F1823 /* LaunchScreen.storyboard in Resources */,
@@ -427,9 +448,11 @@
 				7F021935261FE8B300DC540C /* SearchResultViewController.swift in Sources */,
 				7FD78C67261F3DF400DE6DC1 /* ConditionCell.swift in Sources */,
 				7F1779A3261FF2D1000AAC18 /* Shop.swift in Sources */,
+				7F3E8B712621F140003124DC /* ShopThumbnailCell.swift in Sources */,
 				7FD49B08261ECC4E002F1823 /* AppDelegate.swift in Sources */,
 				7F17799E261FF2A3000AAC18 /* Results.swift in Sources */,
 				7F177991261FF1DA000AAC18 /* NetworkManager.swift in Sources */,
+				7F3E8B782621FB6D003124DC /* ShopNameCell.swift in Sources */,
 				7FD49B0A261ECC4E002F1823 /* SceneDelegate.swift in Sources */,
 				7FD78C54261F04D400DE6DC1 /* CategoryCell.swift in Sources */,
 				7FD78C5E261F08EE00DE6DC1 /* Reusable.swift in Sources */,
@@ -437,6 +460,7 @@
 				7F177999261FF254000AAC18 /* SearchResponse.swift in Sources */,
 				7F82176F2621D51D0068ADD4 /* UIImageView+Extension.swift in Sources */,
 				7F1779BD261FFBF0000AAC18 /* ClientError.swift in Sources */,
+				7F3E8B652621EF04003124DC /* ShopDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

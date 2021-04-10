@@ -198,7 +198,7 @@ class SearchResultViewController: UIViewController {
 }
 
 
-// MARK: - ShopsCollectionView Layout
+// MARK: - Layout
 extension SearchResultViewController {
     
     /// shopsCollectionViewのレイアウトを作る
@@ -272,8 +272,16 @@ extension SearchResultViewController: UICollectionViewDataSource {
 }
 
 
-// MARK: -
-extension SearchResultViewController: UICollectionViewDelegate {}
+// MARK: - UICollectionViewDelegate
+extension SearchResultViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let shopDetailViewController = storyboard?.instantiateViewController(withIdentifier: ShopDetailViewController.reuseIdentifier) as! ShopDetailViewController
+        
+        let shop = shops[indexPath.row]
+        shopDetailViewController.initialize(thumbnailURL: shop.photo.mobile.l, name: shop.name, address: shop.address)
+        navigationController?.pushViewController(shopDetailViewController, animated: true)
+    }
+}
 
 
 // MARK: - Reusable
