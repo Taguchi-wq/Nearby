@@ -16,6 +16,8 @@ class SearchResultViewController: UIViewController {
     @IBOutlet private weak var searchTextField: UITextField!
     /// マップ
     @IBOutlet private weak var mapView: MKMapView!
+    /// 検索した店舗を表示するCollectionView
+    @IBOutlet private weak var shopsCollectionView: UICollectionView!
     
     
     // MARK: - Propetys
@@ -39,13 +41,13 @@ class SearchResultViewController: UIViewController {
         
         checkLocationServices()
         setupTextField(searchTextField)
+        setupCollectionView(shopsCollectionView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tabBarController?.tabBar.isHidden = true
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,11 +74,21 @@ class SearchResultViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
+    /// CollectionViewの設定を行う
+    /// - Parameter collectionView: 設定したいCollectionView
+    private func setupCollectionView(_ collectionView: UICollectionView) {
+        collectionView.dataSource = self
+        collectionView.delegate   = self
+        collectionView.register(UINib(nibName: "SearchResultShopCell", bundle: nil),
+                                forCellWithReuseIdentifier: "SearchResultShopCell")
+        collectionView.collectionViewLayout = createLayout()
+    }
+    
     /// 画面に店舗を表示する
     private func displayShops() {
         getLocation()
-        getShop(keyword: keyword, latitude: latitude, longitude: longitude)
         searchTextField.text = keyword
+        getShop(keyword: keyword, latitude: latitude, longitude: longitude)
     }
     
     /// 近くの店舗を取得する
@@ -101,14 +113,18 @@ class SearchResultViewController: UIViewController {
         DispatchQueue.main.async {
             self.mapView.removeAnnotations(self.mapView.annotations)
             self.putAnnotations()
+            self.shopsCollectionView.reloadData()
+            self.shopsCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: false)
         }
     }
     
     /// 検索に失敗
     /// - Parameter error: エラー
     private func searchFailure(error: ClientError) {
+        self.shops = []
         DispatchQueue.main.async {
             self.mapView.removeAnnotations(self.mapView.annotations)
+            self.shopsCollectionView.reloadData()
             print(error.rawValue)
         }
     }
@@ -182,6 +198,32 @@ class SearchResultViewController: UIViewController {
 }
 
 
+// MARK: - ShopsCollectionView Layout
+extension SearchResultViewController {
+    
+    /// shopsCollectionViewのレイアウトを作る
+    /// - Returns: shopsCollectionViewのレイアウト
+    private func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9),
+                                               heightDimension: .fractionalHeight(0.9))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        section.interGroupSpacing = 10
+        section.contentInsets = .init(top: 5, leading: 10, bottom: 0, trailing: 10)
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+    }
+    
+}
+
+
 // MARK: - CLLocationManagerDelegate
 extension SearchResultViewController: CLLocationManagerDelegate {
 
@@ -209,6 +251,29 @@ extension SearchResultViewController: UITextFieldDelegate {
         return true
     }
 }
+
+
+// MARK: - UICollectionViewDataSource
+extension SearchResultViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return shops.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let searchResultShopCell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultShopCell.reuseIdentifier,
+                                                                      for: indexPath) as! SearchResultShopCell
+        let shop = shops[indexPath.row]
+        searchResultShopCell.initialize(imageURL: shop.photo.mobile.l, name: shop.name, access: shop.access)
+        
+        return searchResultShopCell
+    }
+    
+}
+
+
+// MARK: -
+extension SearchResultViewController: UICollectionViewDelegate {}
 
 
 // MARK: - Reusable
