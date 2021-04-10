@@ -19,7 +19,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cci-wc-63h">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="102"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ハンバーガー" translatesAutoresizingMaskIntoConstraints="NO" id="eRe-gQ-luz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ハンバーガー" translatesAutoresizingMaskIntoConstraints="NO" id="eRe-gQ-luz">
                                 <rect key="frame" x="15" y="15" width="65" height="72"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
@@ -49,6 +49,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ハンバーガー" width="256" height="256"/>
+        <image name="ハンバーガー" width="256" height="256"/>
     </resources>
 </document>

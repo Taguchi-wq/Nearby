@@ -156,6 +156,17 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		7F3E8B82262226A4003124DC /* ShopDetail */ = {
+			isa = PBXGroup;
+			children = (
+				7F3E8B6F2621F140003124DC /* ShopThumbnailCell.swift */,
+				7F3E8B702621F140003124DC /* ShopThumbnailCell.xib */,
+				7F3E8B762621FB6D003124DC /* ShopNameCell.swift */,
+				7F3E8B772621FB6D003124DC /* ShopNameCell.xib */,
+			);
+			path = ShopDetail;
+			sourceTree = "<group>";
+		};
 		7F8217732621D5290068ADD4 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,10 +295,7 @@
 				7FD78C66261F3DF400DE6DC1 /* ConditionCell.xib */,
 				7FD4F9D62621964300B2E25F /* SearchResultShopCell.swift */,
 				7FD4F9D72621964300B2E25F /* SearchResultShopCell.xib */,
-				7F3E8B6F2621F140003124DC /* ShopThumbnailCell.swift */,
-				7F3E8B702621F140003124DC /* ShopThumbnailCell.xib */,
-				7F3E8B762621FB6D003124DC /* ShopNameCell.swift */,
-				7F3E8B772621FB6D003124DC /* ShopNameCell.xib */,
+				7F3E8B82262226A4003124DC /* ShopDetail */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
