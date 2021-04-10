@@ -114,7 +114,6 @@ class SearchResultViewController: UIViewController {
             self.mapView.removeAnnotations(self.mapView.annotations)
             self.putAnnotations()
             self.shopsCollectionView.reloadData()
-            self.shopsCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: false)
         }
     }
     
