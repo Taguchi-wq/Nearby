@@ -16,10 +16,16 @@ class ShopThumbnailCell: UICollectionViewCell {
     @IBOutlet private weak var backButton: UIButton!
     
     
+    // MARK: - Propertys
+    /// ShopThumbnailCellのデリゲート
+    private weak var delegate: ShopThumbnailCellDelegate?
+    
+    
     // MARK: - Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        // 戻るボタンを丸くする
         backButton.layer.cornerRadius = backButton.bounds.height / 2
     }
     
@@ -29,9 +35,16 @@ class ShopThumbnailCell: UICollectionViewCell {
         thumbnailImageView.setupImage(imageURL: imageURL)
     }
     
+    /// ShopThumbnailCellDelegateの設定をする
+    /// - Parameter delegate: ShopThumbnailCellDelegate
+    func setupDelegate(_ delegate: ShopThumbnailCellDelegate) {
+        self.delegate = delegate
+    }
+    
     
     // MARK: - @IBActions
     @IBAction func back(_ sender: Any) {
+        delegate?.back()
     }
     
 }

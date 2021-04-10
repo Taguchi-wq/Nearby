@@ -130,12 +130,15 @@ extension ShopDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            let shopThumbnailCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopThumbnailCell.reuseIdentifier, for: indexPath) as! ShopThumbnailCell
+            let shopThumbnailCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopThumbnailCell.reuseIdentifier,
+                                                                       for: indexPath) as! ShopThumbnailCell
             shopThumbnailCell.initialize(imageURL: thumbnailURL)
+            shopThumbnailCell.setupDelegate(self)
             
             return shopThumbnailCell
         } else {
-            let shopNameCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopNameCell.reuseIdentifier, for: indexPath) as! ShopNameCell
+            let shopNameCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopNameCell.reuseIdentifier,
+                                                                  for: indexPath) as! ShopNameCell
             shopNameCell.initialize(name: name)
             
             return shopNameCell
@@ -147,6 +150,17 @@ extension ShopDetailViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension ShopDetailViewController: UICollectionViewDelegate {}
+
+
+// MARk: - ShopThumbnailCellDelegate
+extension ShopDetailViewController: ShopThumbnailCellDelegate {
+    
+    /// 前の画面に戻る
+    func back() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+}
 
 
 // MARK: - Reusable
