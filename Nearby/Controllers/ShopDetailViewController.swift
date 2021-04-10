@@ -202,29 +202,25 @@ extension ShopDetailViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            let shopThumbnailCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopThumbnailCell.reuseIdentifier,
-                                                                       for: indexPath) as! ShopThumbnailCell
+        switch indexPath.section {
+        case 0:
+            let shopThumbnailCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopThumbnailCell.reuseIdentifier, for: indexPath) as! ShopThumbnailCell
             shopThumbnailCell.initialize(imageURL: thumbnailURL)
             shopThumbnailCell.setupDelegate(self)
             return shopThumbnailCell
-        } else if indexPath.section == 1 {
-            let shopNameCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopNameCell.reuseIdentifier,
-                                                                  for: indexPath) as! ShopNameCell
+        case 1:
+            let shopNameCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopNameCell.reuseIdentifier, for: indexPath) as! ShopNameCell
             shopNameCell.initialize(name: name)
             return shopNameCell
-        } else if indexPath.section == 2 {
-            let shopInformationCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopInformationCell.reuseIdentifier,
-                                                                         for: indexPath) as! ShopInformationCell
+        case 2:
+            let shopInformationCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopInformationCell.reuseIdentifier, for: indexPath) as! ShopInformationCell
             return shopInformationCell
-        } else if indexPath.section == 3 {
-            let shopAddressCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopAddressCell.reuseIdentifier,
-                                                                         for: indexPath) as! ShopAddressCell
+        case 3:
+            let shopAddressCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopAddressCell.reuseIdentifier, for: indexPath) as! ShopAddressCell
             shopAddressCell.initialize(address: address)
             return shopAddressCell
-        } else {
-            let shopOpenCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopOpenCell.reuseIdentifier,
-                                                                         for: indexPath) as! ShopOpenCell
+        default:
+            let shopOpenCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopOpenCell.reuseIdentifier, for: indexPath) as! ShopOpenCell
             shopOpenCell.initialize(open: open)
             return shopOpenCell
         }

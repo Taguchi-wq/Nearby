@@ -150,11 +150,12 @@ extension SearchViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
+        switch indexPath.section {
+        case 0:
             let conditionCell = collectionView.dequeueReusableCell(withReuseIdentifier: ConditionCell.reuseIdentifier, for: indexPath) as! ConditionCell
             conditionCell.initialize(condition: conditions[indexPath.row])
             return conditionCell
-        } else {
+        default:
             let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseIdentifier, for: indexPath) as! CategoryCell
             categoryCell.initialize(imageName: categorys[indexPath.row])
             return categoryCell
