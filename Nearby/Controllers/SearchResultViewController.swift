@@ -124,7 +124,7 @@ class SearchResultViewController: UIViewController {
         DispatchQueue.main.async {
             self.mapView.removeAnnotations(self.mapView.annotations)
             self.shopsCollectionView.reloadData()
-            print(error.rawValue)
+            Alert.present(on: self, message: error.rawValue)
         }
     }
     
