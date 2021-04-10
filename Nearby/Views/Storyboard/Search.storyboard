@@ -84,6 +84,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categoryCollectionView" destination="M9t-sD-d3I" id="ga0-T6-vEZ"/>
+                        <outlet property="searchField" destination="SDR-Ty-Nn7" id="eLA-zD-RHS"/>
                         <segue destination="JDx-TK-wqI" kind="show" id="giJ-Xe-xk2"/>
                     </connections>
                 </viewController>

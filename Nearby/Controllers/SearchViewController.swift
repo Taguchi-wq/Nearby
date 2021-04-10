@@ -18,6 +18,8 @@ class SearchViewController: UIViewController {
     
 
     // MARK: - @IBOutlets
+    /// 検索窓口
+    @IBOutlet private weak var searchField: UITextField!
     /// カテゴリーを表示するcollectionView
     @IBOutlet private weak var categoryCollectionView: UICollectionView!
     
@@ -45,6 +47,13 @@ class SearchViewController: UIViewController {
     /// SearchViewControllerを初期化する
     private func initialize() {
         setupCollectionView(categoryCollectionView)
+        setupTextField(searchField)
+    }
+    
+    /// TextFieldの設定を行う
+    /// - Parameter textField: 設定したいTextField
+    private func setupTextField(_ textField: UITextField) {
+        textField.delegate = self
     }
     
     /// CollectionViewの設定を行う
@@ -57,6 +66,14 @@ class SearchViewController: UIViewController {
         collectionView.register(UINib(nibName: ConditionCell.reuseIdentifier, bundle: nil),
                                 forCellWithReuseIdentifier: ConditionCell.reuseIdentifier)
         collectionView.collectionViewLayout = createLayout()
+    }
+    
+    /// SearchResultViewControllerにkeywordを渡して画面遷移する
+    /// - Parameter keyword: 検索したいキーワード
+    private func transitionSearchResultViewController(keyword: String) {
+        let searchResultViewController = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.reuseIdentifier) as! SearchResultViewController
+        searchResultViewController.initialize(keyword: keyword)
+        navigationController?.pushViewController(searchResultViewController, animated: true)
     }
     
     /// SearchViewControllerのレイアウトを作る
@@ -150,8 +167,26 @@ extension SearchViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let searchResultViewController = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.reuseIdentifier) as! SearchResultViewController
-        searchResultViewController.initialize(keyword: categorys[indexPath.row])
-        navigationController?.pushViewController(searchResultViewController, animated: true)
+        if indexPath.section == 1 {
+            transitionSearchResultViewController(keyword: categorys[indexPath.row])
+        }
+    }
+}
+
+
+// MARK: - UITextFieldDelegate
+extension SearchViewController: UITextFieldDelegate {
+    
+    // キーボードの検索ボタンが押された時に呼ばれる
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        // 入力されているキーワードで飲食店を探す
+        guard let keyword = searchField.text else { return true }
+        transitionSearchResultViewController(keyword: keyword)
+        
+        // キーボードを閉じる
+        textField.resignFirstResponder()
+        
+        return true
     }
 }

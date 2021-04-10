@@ -30,7 +30,7 @@ class SearchResultViewController: UIViewController {
     /// 現在地の経度
     private var longitude = Double()
     /// マップに表示する範囲
-    private let regionInMeters: Double = 1000
+    private let regionInMeters: Double = 3000
     
     
     // MARK: - Methods
@@ -38,13 +38,20 @@ class SearchResultViewController: UIViewController {
         super.viewDidLoad()
         
         checkLocationServices()
-        displayShops()
+        setupTextField(searchTextField)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tabBarController?.tabBar.isHidden = true
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        displayShops()
     }
     
     /// SearchResultViewControllerの初期化をする
@@ -53,22 +60,35 @@ class SearchResultViewController: UIViewController {
         self.keyword = keyword
     }
     
+    /// TextFieldの設定を行う
+    /// - Parameter textField: 設定したいTextField
+    private func setupTextField(_ textField: UITextField) {
+        textField.delegate = self
+    }
+    
+    /// locationManagerの設定を行う
+    private func setupLocationManager() {
+        locationManager.delegate        = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
     /// 画面に店舗を表示する
     private func displayShops() {
-        getShop(keyword)
+        getLocation()
+        getShop(keyword: keyword, latitude: latitude, longitude: longitude)
         searchTextField.text = keyword
     }
     
     /// 近くの店舗を取得する
     /// - Parameter keyword: 検索キーワード
-    private func getShop(_ keyword: String) {
+    private func getShop(keyword: String, latitude: Double, longitude: Double) {
         NetworkManager.shared.getShop(keyword, latitude: latitude, longitude: longitude) { result in
             switch result {
             case .success(let shops):
-                print(shops)
+                print(shops.count)
                 self.updateMap(shops: shops)
             case .failure(let error):
-                print(error.rawValue)
+                self.searchFailure(error: error)
             }
         }
     }
@@ -79,7 +99,17 @@ class SearchResultViewController: UIViewController {
         self.shops = []
         self.shops.append(contentsOf: shops)
         DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.mapView.annotations)
             self.putAnnotations()
+        }
+    }
+    
+    /// 検索に失敗
+    /// - Parameter error: エラー
+    private func searchFailure(error: ClientError) {
+        DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            print(error.rawValue)
         }
     }
     
@@ -97,12 +127,6 @@ class SearchResultViewController: UIViewController {
         mapView.addAnnotations(annotations)
     }
     
-    /// locationManagerの設定を行う
-    private func setupLocationManager() {
-        locationManager.delegate        = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    }
-    
     /// デバイスの位置情報が有効になっているかどうかを確認する
     private func checkLocationServices() {
         if CLLocationManager.locationServicesEnabled() {
@@ -111,6 +135,14 @@ class SearchResultViewController: UIViewController {
         } else {
             // TODO: デバイス自体の位置情報をオンにすることを促すアラートを表示する
             // ユーザーは、[設定]> [プライバシー]で[位置情報サービス]スイッチを切り替えて、位置情報サービスを有効または無効にできます。
+        }
+    }
+    
+    /// 現在地の緯度経度を取得する
+    private func getLocation() {
+        if let location = locationManager.location?.coordinate {
+            latitude  = location.latitude
+            longitude = location.longitude
         }
     }
     
@@ -152,19 +184,30 @@ class SearchResultViewController: UIViewController {
 
 // MARK: - CLLocationManagerDelegate
 extension SearchResultViewController: CLLocationManagerDelegate {
-    // ユーザーが移動すると呼ばれる
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // 現在地の緯度経度を取得しlatitudeとlongitude変数に格納する
-        guard let location = locations.last else { return }
-        latitude  = location.coordinate.latitude
-        longitude = location.coordinate.longitude
-    }
-    
+
     // 位置情報の認証状態が変更された時に呼ばれる
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
     }
     
+}
+
+
+// MARK: - UITextFieldDelegate
+extension SearchResultViewController: UITextFieldDelegate {
+    
+    // キーボードの検索ボタンが押された時に呼ばれる
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        // 検索窓口に入力されたキーワードで検索する
+        guard let keyword = searchTextField.text else { return true }
+        getShop(keyword: keyword, latitude: latitude,longitude: longitude)
+        
+        // キーボードを閉じる
+        textField.resignFirstResponder()
+        
+        return true
+    }
 }
 
 
