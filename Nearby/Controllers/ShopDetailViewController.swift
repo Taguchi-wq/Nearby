@@ -14,6 +14,9 @@ class ShopDetailViewController: UIViewController {
     private enum SectionLayoutKind: CaseIterable {
         case thumbnail
         case name
+        case information
+        case address
+        case open
     }
 
     // MARK: - @IBOutlets
@@ -26,6 +29,10 @@ class ShopDetailViewController: UIViewController {
     private var thumbnailURL = String()
     /// 店舗名
     private var name = String()
+    /// 店舗の住所
+    private var address = String()
+    /// 店舗のオープン時間
+    private var open = String()
     
     
     // MARK: - Methods
@@ -40,9 +47,11 @@ class ShopDetailViewController: UIViewController {
     ///   - thumbnailURL: 店舗の画像URL
     ///   - name: 店舗名
     ///   - address: 店舗の住所
-    func initialize(thumbnailURL: String, name: String, address: String) {
+    func initialize(thumbnailURL: String, name: String, address: String, open: String) {
         self.thumbnailURL = thumbnailURL
         self.name         = name
+        self.address      = address
+        self.open         = open
     }
     
     /// CollectionViewの設定を行う
@@ -54,6 +63,12 @@ class ShopDetailViewController: UIViewController {
                                 forCellWithReuseIdentifier: ShopThumbnailCell.reuseIdentifier)
         collectionView.register(UINib(nibName: ShopNameCell.reuseIdentifier, bundle: nil),
                                 forCellWithReuseIdentifier: ShopNameCell.reuseIdentifier)
+        collectionView.register(UINib(nibName: ShopInformationCell.reuseIdentifier, bundle: nil),
+                                forCellWithReuseIdentifier: ShopInformationCell.reuseIdentifier)
+        collectionView.register(UINib(nibName: ShopAddressCell.reuseIdentifier, bundle: nil),
+                                forCellWithReuseIdentifier: ShopAddressCell.reuseIdentifier)
+        collectionView.register(UINib(nibName: ShopOpenCell.reuseIdentifier, bundle: nil),
+                                forCellWithReuseIdentifier: ShopOpenCell.reuseIdentifier)
         collectionView.collectionViewLayout = createLayout()
     }
     
@@ -75,6 +90,12 @@ extension ShopDetailViewController {
                 return self.thumbnailLayout()
             case .name:
                 return self.nameLayout()
+            case .information:
+                return self.informationLayout()
+            case .address:
+                return self.addressLayout()
+            case .open:
+                return self.openLayout()
             }
         }
 
@@ -114,6 +135,58 @@ extension ShopDetailViewController {
         return section
     }
     
+    /// 「お店の情報」を表示するレイアウト
+    /// - Returns: 「お店の情報」を表示するレイアウト
+    private func informationLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .fractionalHeight(0.1))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
+        
+        return section
+    }
+    
+    /// 店舗の住所を表示するレイアウト
+    /// - Returns: 店舗の住所を表示するレイアウト
+    private func addressLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .estimated(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .estimated(1))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 0, leading: 20, bottom: 5, trailing: 20)
+        
+        return section
+    }
+    
+    
+    /// 店舗のオープン時間を表示するレイアウト
+    /// - Returns: 店舗のオープン時間を表示するレイアウト
+    private func openLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .estimated(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .estimated(1))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 5, leading: 20, bottom: 0, trailing: 20)
+        
+        return section
+    }
+    
 }
 
 
@@ -134,14 +207,26 @@ extension ShopDetailViewController: UICollectionViewDataSource {
                                                                        for: indexPath) as! ShopThumbnailCell
             shopThumbnailCell.initialize(imageURL: thumbnailURL)
             shopThumbnailCell.setupDelegate(self)
-            
             return shopThumbnailCell
-        } else {
+        } else if indexPath.section == 1 {
             let shopNameCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopNameCell.reuseIdentifier,
                                                                   for: indexPath) as! ShopNameCell
             shopNameCell.initialize(name: name)
-            
             return shopNameCell
+        } else if indexPath.section == 2 {
+            let shopInformationCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopInformationCell.reuseIdentifier,
+                                                                         for: indexPath) as! ShopInformationCell
+            return shopInformationCell
+        } else if indexPath.section == 3 {
+            let shopAddressCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopAddressCell.reuseIdentifier,
+                                                                         for: indexPath) as! ShopAddressCell
+            shopAddressCell.initialize(address: address)
+            return shopAddressCell
+        } else {
+            let shopOpenCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopOpenCell.reuseIdentifier,
+                                                                         for: indexPath) as! ShopOpenCell
+            shopOpenCell.initialize(open: open)
+            return shopOpenCell
         }
     }
     

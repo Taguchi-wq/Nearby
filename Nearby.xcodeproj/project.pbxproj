@@ -23,6 +23,12 @@
 		7F3E8B782621FB6D003124DC /* ShopNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E8B762621FB6D003124DC /* ShopNameCell.swift */; };
 		7F3E8B792621FB6D003124DC /* ShopNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3E8B772621FB6D003124DC /* ShopNameCell.xib */; };
 		7F3E8B7E26221F6A003124DC /* ShopThumbnailCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E8B7D26221F6A003124DC /* ShopThumbnailCellDelegate.swift */; };
+		7F3E8B85262227DF003124DC /* ShopInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E8B83262227DF003124DC /* ShopInformationCell.swift */; };
+		7F3E8B86262227DF003124DC /* ShopInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3E8B84262227DF003124DC /* ShopInformationCell.xib */; };
+		7F3E8B8F26222A67003124DC /* ShopAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E8B8D26222A67003124DC /* ShopAddressCell.swift */; };
+		7F3E8B9026222A67003124DC /* ShopAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3E8B8E26222A67003124DC /* ShopAddressCell.xib */; };
+		7F3E8B962622363A003124DC /* ShopOpenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E8B942622363A003124DC /* ShopOpenCell.swift */; };
+		7F3E8B972622363A003124DC /* ShopOpenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3E8B952622363A003124DC /* ShopOpenCell.xib */; };
 		7F82176F2621D51D0068ADD4 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82176E2621D51D0068ADD4 /* UIImageView+Extension.swift */; };
 		7FD49B08261ECC4E002F1823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD49B07261ECC4E002F1823 /* AppDelegate.swift */; };
 		7FD49B0A261ECC4E002F1823 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD49B09261ECC4E002F1823 /* SceneDelegate.swift */; };
@@ -77,6 +83,12 @@
 		7F3E8B762621FB6D003124DC /* ShopNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopNameCell.swift; sourceTree = "<group>"; };
 		7F3E8B772621FB6D003124DC /* ShopNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopNameCell.xib; sourceTree = "<group>"; };
 		7F3E8B7D26221F6A003124DC /* ShopThumbnailCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopThumbnailCellDelegate.swift; sourceTree = "<group>"; };
+		7F3E8B83262227DF003124DC /* ShopInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInformationCell.swift; sourceTree = "<group>"; };
+		7F3E8B84262227DF003124DC /* ShopInformationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopInformationCell.xib; sourceTree = "<group>"; };
+		7F3E8B8D26222A67003124DC /* ShopAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAddressCell.swift; sourceTree = "<group>"; };
+		7F3E8B8E26222A67003124DC /* ShopAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopAddressCell.xib; sourceTree = "<group>"; };
+		7F3E8B942622363A003124DC /* ShopOpenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopOpenCell.swift; sourceTree = "<group>"; };
+		7F3E8B952622363A003124DC /* ShopOpenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopOpenCell.xib; sourceTree = "<group>"; };
 		7F82176E2621D51D0068ADD4 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		7FD49B04261ECC4E002F1823 /* Nearby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nearby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD49B07261ECC4E002F1823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +175,12 @@
 				7F3E8B702621F140003124DC /* ShopThumbnailCell.xib */,
 				7F3E8B762621FB6D003124DC /* ShopNameCell.swift */,
 				7F3E8B772621FB6D003124DC /* ShopNameCell.xib */,
+				7F3E8B83262227DF003124DC /* ShopInformationCell.swift */,
+				7F3E8B84262227DF003124DC /* ShopInformationCell.xib */,
+				7F3E8B8D26222A67003124DC /* ShopAddressCell.swift */,
+				7F3E8B8E26222A67003124DC /* ShopAddressCell.xib */,
+				7F3E8B942622363A003124DC /* ShopOpenCell.swift */,
+				7F3E8B952622363A003124DC /* ShopOpenCell.xib */,
 			);
 			path = ShopDetail;
 			sourceTree = "<group>";
@@ -426,6 +444,9 @@
 				7F02193D261FE8CD00DC540C /* SearchResult.storyboard in Resources */,
 				7FD49B14261ECC50002F1823 /* LaunchScreen.storyboard in Resources */,
 				7FD49B11261ECC50002F1823 /* Assets.xcassets in Resources */,
+				7F3E8B86262227DF003124DC /* ShopInformationCell.xib in Resources */,
+				7F3E8B972622363A003124DC /* ShopOpenCell.xib in Resources */,
+				7F3E8B9026222A67003124DC /* ShopAddressCell.xib in Resources */,
 				7FD78C44261EF10E00DE6DC1 /* Search.storyboard in Resources */,
 				7FD49B0F261ECC4E002F1823 /* Main.storyboard in Resources */,
 				7FD4F9D92621964300B2E25F /* SearchResultShopCell.xib in Resources */,
@@ -455,6 +476,7 @@
 			files = (
 				7F1779A8261FF51A000AAC18 /* Photo.swift in Sources */,
 				7FD4F9D82621964300B2E25F /* SearchResultShopCell.swift in Sources */,
+				7F3E8B962622363A003124DC /* ShopOpenCell.swift in Sources */,
 				7FD78C4C261EF19500DE6DC1 /* SearchViewController.swift in Sources */,
 				7F021935261FE8B300DC540C /* SearchResultViewController.swift in Sources */,
 				7FD78C67261F3DF400DE6DC1 /* ConditionCell.swift in Sources */,
@@ -467,9 +489,11 @@
 				7FD49B0A261ECC4E002F1823 /* SceneDelegate.swift in Sources */,
 				7FD78C54261F04D400DE6DC1 /* CategoryCell.swift in Sources */,
 				7FD78C5E261F08EE00DE6DC1 /* Reusable.swift in Sources */,
+				7F3E8B85262227DF003124DC /* ShopInformationCell.swift in Sources */,
 				7F1779B5261FF555000AAC18 /* Mobile.swift in Sources */,
 				7F3E8B7E26221F6A003124DC /* ShopThumbnailCellDelegate.swift in Sources */,
 				7F177999261FF254000AAC18 /* SearchResponse.swift in Sources */,
+				7F3E8B8F26222A67003124DC /* ShopAddressCell.swift in Sources */,
 				7F82176F2621D51D0068ADD4 /* UIImageView+Extension.swift in Sources */,
 				7F1779BD261FFBF0000AAC18 /* ClientError.swift in Sources */,
 				7F3E8B652621EF04003124DC /* ShopDetailViewController.swift in Sources */,

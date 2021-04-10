@@ -13,5 +13,6 @@ struct Shop: Decodable {
     let lat: Double
     let lng: Double
     let name: String
+    let open: String
     let photo: Photo
 }

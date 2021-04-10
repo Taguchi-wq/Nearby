@@ -277,7 +277,7 @@ extension SearchResultViewController: UICollectionViewDelegate {
         let shopDetailViewController = storyboard?.instantiateViewController(withIdentifier: ShopDetailViewController.reuseIdentifier) as! ShopDetailViewController
         
         let shop = shops[indexPath.row]
-        shopDetailViewController.initialize(thumbnailURL: shop.photo.mobile.l, name: shop.name, address: shop.address)
+        shopDetailViewController.initialize(thumbnailURL: shop.photo.mobile.l, name: shop.name, address: shop.address, open: shop.open)
         navigationController?.pushViewController(shopDetailViewController, animated: true)
     }
 }
