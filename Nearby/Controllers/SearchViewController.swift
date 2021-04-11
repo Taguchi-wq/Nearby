@@ -75,6 +75,12 @@ class SearchViewController: UIViewController {
         searchResultViewController.initialize(keyword: keyword)
         navigationController?.pushViewController(searchResultViewController, animated: true)
     }
+
+}
+
+
+// MARK: - Layout
+extension SearchViewController {
     
     /// SearchViewControllerのレイアウトを作る
     /// - Returns: SearchViewControllerのレイアウト
@@ -130,9 +136,8 @@ class SearchViewController: UIViewController {
         
         return section
     }
-
+    
 }
-
 
 // MARK: - UICollectionViewDataSource
 extension SearchViewController: UICollectionViewDataSource {
