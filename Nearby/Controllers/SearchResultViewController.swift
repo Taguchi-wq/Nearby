@@ -259,7 +259,7 @@ extension SearchResultViewController: UICollectionViewDataSource {
         let searchResultShopCell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultShopCell.reuseIdentifier,
                                                                       for: indexPath) as! SearchResultShopCell
         let shop = shops[indexPath.row]
-        searchResultShopCell.initialize(imageURL: shop.photo.mobile.l, name: shop.name, access: shop.access)
+        searchResultShopCell.initialize(imageURL: shop.photo.pc.m, name: shop.name, access: shop.access)
         
         return searchResultShopCell
     }
@@ -273,7 +273,7 @@ extension SearchResultViewController: UICollectionViewDelegate {
         let shopDetailViewController = storyboard?.instantiateViewController(withIdentifier: ShopDetailViewController.reuseIdentifier) as! ShopDetailViewController
         
         let shop = shops[indexPath.row]
-        shopDetailViewController.initialize(thumbnailURL: shop.photo.mobile.l, name: shop.name, address: shop.address, open: shop.open)
+        shopDetailViewController.initialize(thumbnailURL: shop.photo.pc.l, name: shop.name, address: shop.address, open: shop.open)
         navigationController?.pushViewController(shopDetailViewController, animated: true)
     }
 }

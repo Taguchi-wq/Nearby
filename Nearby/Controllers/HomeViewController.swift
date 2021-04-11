@@ -229,7 +229,7 @@ extension HomeViewController: UICollectionViewDataSource {
         default:
             let shopCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopCell.reuseIdentifier, for: indexPath) as! ShopCell
             let shop = shops[indexPath.row]
-            shopCell.initialize(imageURL: shop.photo.mobile.l, name: shop.name, genre: shop.genre.name)
+            shopCell.initialize(imageURL: shop.photo.pc.l, name: shop.name, genre: shop.genre.name)
             return shopCell
         }
     }

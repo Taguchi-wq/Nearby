@@ -8,5 +8,5 @@
 import Foundation
 
 struct Photo: Decodable {
-    let mobile: Mobile
+    let pc: PC
 }
