@@ -39,21 +39,16 @@ class SearchResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkLocationServices()
         setupTextField(searchTextField)
         setupCollectionView(shopsCollectionView)
+        checkLocationServices()
+        displayShops()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tabBarController?.tabBar.isHidden = true
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        displayShops()
     }
     
     /// SearchResultViewControllerの初期化をする
@@ -86,7 +81,6 @@ class SearchResultViewController: UIViewController {
     
     /// 画面に店舗を表示する
     private func displayShops() {
-        getLocation()
         searchTextField.text = keyword
         getShop(keyword: keyword, latitude: latitude, longitude: longitude)
     }
@@ -143,7 +137,7 @@ class SearchResultViewController: UIViewController {
     }
     
     /// デバイスの位置情報が有効になっているかどうかを確認する
-    private func checkLocationServices() {
+    func checkLocationServices() {
         if CLLocationManager.locationServicesEnabled() {
             setupLocationManager()
             checkLocationAuthorization()
@@ -174,8 +168,10 @@ class SearchResultViewController: UIViewController {
         switch locationManager.authorizationStatus {
         case .authorizedWhenInUse:
             centerViewOnUserLocation()
+            getLocation()
             locationManager.startUpdatingLocation()
         case .denied:
+            Alert.showLocationInformationPermissionAlert(on: self)
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()

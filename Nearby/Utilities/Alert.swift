@@ -20,4 +20,17 @@ struct Alert {
         viewController.present(alert, animated: true, completion: nil)
     }
     
+    static func showLocationInformationPermissionAlert(on viewController: UIViewController) {
+        // 位置情報の設定画面
+        let settingAppURL = URL(string: UIApplication.openSettingsURLString)!
+        
+        let alert = UIAlertController(title: "位置情報が利用できません", message: "位置情報を使用することが許可されていません。”設定”で位置情報へのアクセスを有効にしてください", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "設定", style: .default, handler: { _ in
+            UIApplication.shared.open(settingAppURL, options: [:], completionHandler: nil)
+        }))
+        
+        viewController.present(alert, animated: true, completion: nil)
+    }
+    
 }
