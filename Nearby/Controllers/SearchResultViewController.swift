@@ -118,7 +118,7 @@ class SearchResultViewController: UIViewController {
         DispatchQueue.main.async {
             self.mapView.removeAnnotations(self.mapView.annotations)
             self.shopsCollectionView.reloadData()
-            Alert.present(on: self, message: error.rawValue)
+            Alert.showBasic(on: self, message: error.rawValue)
         }
     }
     
@@ -171,7 +171,7 @@ class SearchResultViewController: UIViewController {
             getLocation()
             locationManager.startUpdatingLocation()
         case .denied:
-            Alert.showLocationInformationPermissionAlert(on: self)
+            Alert.showLocationInformationPermission(on: self)
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()

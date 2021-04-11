@@ -58,7 +58,7 @@ class HomeViewController: UIViewController {
             locationManager.startUpdatingLocation()
             getLocation()
         case .denied:
-            Alert.showLocationInformationPermissionAlert(on: self)
+            Alert.showLocationInformationPermission(on: self)
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
