@@ -10,6 +10,7 @@ import Foundation
 struct Shop: Decodable {
     let access: String
     let address: String
+    let genre: Genre
     let lat: Double
     let lng: Double
     let name: String
