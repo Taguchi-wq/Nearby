@@ -43,6 +43,9 @@
                                         </constraints>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="slider.horizontal.3" catalog="system"/>
+                                        <connections>
+                                            <action selector="determineCondition:" destination="oo6-8j-5py" eventType="touchUpInside" id="UfR-8t-Vh1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -98,11 +101,22 @@
                         <outlet property="searchTextField" destination="Xmj-Ai-1MN" id="b8g-hV-HRk"/>
                         <outlet property="shopsCollectionView" destination="42C-qC-jcb" id="afx-CB-JnG"/>
                         <segue destination="RpT-ni-ext" kind="show" id="TAS-Z9-cNF"/>
+                        <segue destination="wyW-ko-6z2" kind="show" id="wmg-7Z-nop"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bT-Ld-zHC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1028.985507246377" y="124.55357142857142"/>
+        </scene>
+        <!--SearchConditions-->
+        <scene sceneID="rbk-9h-x4B">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SearchConditionsViewController" storyboardName="SearchConditions" id="wyW-ko-6z2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="WgO-RD-WlH"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Em3-PO-dA2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1861" y="15"/>
         </scene>
         <!--ShopDetail-->
         <scene sceneID="Mao-mO-V3i">
@@ -112,7 +126,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qVd-hM-jjv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1927" y="125"/>
+            <point key="canvasLocation" x="1831" y="219"/>
         </scene>
     </scenes>
     <resources>

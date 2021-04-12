@@ -190,6 +190,12 @@ class SearchResultViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    /// 検索条件を決める画面へ遷移する
+    @IBAction func determineCondition(_ sender: Any) {
+        let searchConditionsViewController = storyboard?.instantiateViewController(withIdentifier: SearchConditionsViewController.reuseIdentifier) as! SearchConditionsViewController
+        present(searchConditionsViewController, animated: true, completion: nil)
+    }
+    
 }
 
 

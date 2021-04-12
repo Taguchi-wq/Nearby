@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dba-0J-OGB">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--検索条件-->
+        <scene sceneID="ocD-hC-Kw4">
+            <objects>
+                <viewController storyboardIdentifier="SearchConditionsViewController" id="dba-0J-OGB" customClass="SearchConditionsViewController" customModule="Nearby" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C7f-vO-PRP">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="300" translatesAutoresizingMaskIntoConstraints="NO" id="mVn-sl-EM5">
+                                <rect key="frame" x="20" y="142" width="350" height="560"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="uku-mZ-80a">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8JV-WT-jrf">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="65"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現在地からの距離" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYR-aU-UWb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WLr-C1-6sr">
+                                                        <rect key="frame" x="0.0" y="34" width="350" height="32"/>
+                                                        <segments>
+                                                            <segment title="300m"/>
+                                                            <segment title="500m"/>
+                                                            <segment title="1000m"/>
+                                                            <segment title="3000m"/>
+                                                        </segments>
+                                                        <color key="selectedSegmentTintColor" red="0.93777418140000002" green="0.46328425410000001" blue="0.076731927690000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UzR-O0-G9u">
+                                                <rect key="frame" x="0.0" y="135" width="350" height="65"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="個室あり" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlQ-jR-idD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kzu-CO-sF6">
+                                                        <rect key="frame" x="0.0" y="34" width="350" height="32"/>
+                                                        <segments>
+                                                            <segment title="絞り込む"/>
+                                                            <segment title="絞り込まない"/>
+                                                        </segments>
+                                                        <color key="selectedSegmentTintColor" red="0.93777418140000002" green="0.46328425410000001" blue="0.076731927690000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="8JV-WT-jrf" firstAttribute="leading" secondItem="uku-mZ-80a" secondAttribute="leading" id="7U2-wS-5DL"/>
+                                            <constraint firstAttribute="trailing" secondItem="8JV-WT-jrf" secondAttribute="trailing" id="PC3-ll-FJH"/>
+                                            <constraint firstAttribute="trailing" secondItem="UzR-O0-G9u" secondAttribute="trailing" id="Rba-Rr-9UJ"/>
+                                            <constraint firstItem="UzR-O0-G9u" firstAttribute="leading" secondItem="uku-mZ-80a" secondAttribute="leading" id="edL-35-SRJ"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI5-ee-tbz">
+                                        <rect key="frame" x="0.0" y="500" width="350" height="60"/>
+                                        <color key="backgroundColor" red="0.93777418140000002" green="0.46328425410000001" blue="0.076731927690000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="VeF-9w-EPM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <state key="normal" title="適応する">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="adapt:" destination="dba-0J-OGB" eventType="touchUpInside" id="flD-P0-FJu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ZI5-ee-tbz" firstAttribute="leading" secondItem="mVn-sl-EM5" secondAttribute="leading" id="Dfx-Bg-cX5"/>
+                                    <constraint firstAttribute="trailing" secondItem="uku-mZ-80a" secondAttribute="trailing" id="ZCD-5h-ykC"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZI5-ee-tbz" secondAttribute="trailing" id="b0p-tf-4MQ"/>
+                                    <constraint firstItem="uku-mZ-80a" firstAttribute="leading" secondItem="mVn-sl-EM5" secondAttribute="leading" id="sug-2A-Kgu"/>
+                                </constraints>
+                            </stackView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5C-4C-BpM">
+                                <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                                <items>
+                                    <navigationItem title="検索条件" id="gZi-hL-xCY"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fUz-oG-Rph"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fUz-oG-Rph" firstAttribute="trailing" secondItem="mVn-sl-EM5" secondAttribute="trailing" constant="20" id="2ff-7Y-svP"/>
+                            <constraint firstItem="l5C-4C-BpM" firstAttribute="trailing" secondItem="fUz-oG-Rph" secondAttribute="trailing" id="6as-Ft-EWs"/>
+                            <constraint firstItem="mVn-sl-EM5" firstAttribute="centerX" secondItem="C7f-vO-PRP" secondAttribute="centerX" id="Sz3-9a-Iu3"/>
+                            <constraint firstItem="l5C-4C-BpM" firstAttribute="leading" secondItem="fUz-oG-Rph" secondAttribute="leading" id="cwh-pe-qLu"/>
+                            <constraint firstItem="mVn-sl-EM5" firstAttribute="leading" secondItem="fUz-oG-Rph" secondAttribute="leading" constant="20" id="fWk-h3-whY"/>
+                            <constraint firstItem="mVn-sl-EM5" firstAttribute="centerY" secondItem="C7f-vO-PRP" secondAttribute="centerY" id="j4w-3A-2aa"/>
+                            <constraint firstItem="l5C-4C-BpM" firstAttribute="top" secondItem="fUz-oG-Rph" secondAttribute="top" id="zI2-dU-og6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="検索条件" id="AY2-jB-4BI"/>
+                    <connections>
+                        <outlet property="adaptButton" destination="ZI5-ee-tbz" id="avv-YV-9j4"/>
+                        <outlet property="privateRoomSegmentedControl" destination="Kzu-CO-sF6" id="bAL-NJ-pCu"/>
+                        <outlet property="rangeSegmentedControl" destination="WLr-C1-6sr" id="vrm-Iu-nlb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="37T-Zw-kVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="971.01449275362324" y="89.732142857142847"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -75,6 +75,15 @@ class SearchViewController: UIViewController {
         searchResultViewController.initialize(keyword: keyword)
         navigationController?.pushViewController(searchResultViewController, animated: true)
     }
+    
+    
+    // MARK: - @IBActions
+    /// 検索条件を決める画面へ遷移する
+    @IBAction func determineCondition(_ sender: Any) {
+        let searchConditionsViewController = storyboard?.instantiateViewController(withIdentifier: SearchConditionsViewController.reuseIdentifier) as! SearchConditionsViewController
+        present(searchConditionsViewController, animated: true, completion: nil)
+    }
+    
 
 }
 

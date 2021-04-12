@@ -36,6 +36,8 @@
 		7F3E8BCE262343B4003124DC /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E8BCD262343B4003124DC /* Genre.swift */; };
 		7F3E8BDF26234EF0003124DC /* PC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E8BDE26234EF0003124DC /* PC.swift */; };
 		7F82176F2621D51D0068ADD4 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82176E2621D51D0068ADD4 /* UIImageView+Extension.swift */; };
+		7FC958A226241E5E00BA369B /* SearchConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC958A126241E5D00BA369B /* SearchConditions.storyboard */; };
+		7FC958A72624261B00BA369B /* SearchConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC958A62624261B00BA369B /* SearchConditionsViewController.swift */; };
 		7FD49B08261ECC4E002F1823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD49B07261ECC4E002F1823 /* AppDelegate.swift */; };
 		7FD49B0A261ECC4E002F1823 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD49B09261ECC4E002F1823 /* SceneDelegate.swift */; };
 		7FD49B0F261ECC4E002F1823 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD49B0D261ECC4E002F1823 /* Main.storyboard */; };
@@ -102,6 +104,8 @@
 		7F3E8BCD262343B4003124DC /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		7F3E8BDE26234EF0003124DC /* PC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PC.swift; sourceTree = "<group>"; };
 		7F82176E2621D51D0068ADD4 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		7FC958A126241E5D00BA369B /* SearchConditions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchConditions.storyboard; sourceTree = "<group>"; };
+		7FC958A62624261B00BA369B /* SearchConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConditionsViewController.swift; sourceTree = "<group>"; };
 		7FD49B04261ECC4E002F1823 /* Nearby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nearby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD49B07261ECC4E002F1823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FD49B09261ECC4E002F1823 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 				7F3E8B642621EF04003124DC /* ShopDetailViewController.swift */,
 				7FD78C4B261EF19500DE6DC1 /* SearchViewController.swift */,
 				7F021934261FE8B300DC540C /* SearchResultViewController.swift */,
+				7FC958A62624261B00BA369B /* SearchConditionsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				7F3E8B5F2621EEC9003124DC /* ShopDetail.storyboard */,
 				7FD78C43261EF10E00DE6DC1 /* Search.storyboard */,
 				7F02193C261FE8CD00DC540C /* SearchResult.storyboard */,
+				7FC958A126241E5D00BA369B /* SearchConditions.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -465,6 +471,7 @@
 				7FD49B14261ECC50002F1823 /* LaunchScreen.storyboard in Resources */,
 				7FD49B11261ECC50002F1823 /* Assets.xcassets in Resources */,
 				7F3E8B86262227DF003124DC /* ShopInformationCell.xib in Resources */,
+				7FC958A226241E5E00BA369B /* SearchConditions.storyboard in Resources */,
 				7F3E8B972622363A003124DC /* ShopOpenCell.xib in Resources */,
 				7F3E8B9026222A67003124DC /* ShopAddressCell.xib in Resources */,
 				7FD78C44261EF10E00DE6DC1 /* Search.storyboard in Resources */,
@@ -520,6 +527,7 @@
 				7F3E8B8F26222A67003124DC /* ShopAddressCell.swift in Sources */,
 				7F82176F2621D51D0068ADD4 /* UIImageView+Extension.swift in Sources */,
 				7F1779BD261FFBF0000AAC18 /* ClientError.swift in Sources */,
+				7FC958A72624261B00BA369B /* SearchConditionsViewController.swift in Sources */,
 				7F3E8B652621EF04003124DC /* ShopDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
