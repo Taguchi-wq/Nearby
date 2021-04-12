@@ -22,7 +22,19 @@ class SearchConditionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initialize()
+    }
+    
+    /// SearchConditionsViewControllerを初期化する
+    private func initialize() {
         adaptButton.layer.cornerRadius = 10
+        setupSegmentedControl()
+    }
+    
+    /// SegmentedControlの設定をする
+    private func setupSegmentedControl() {
+        rangeSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        privateRoomSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
     }
 
     
