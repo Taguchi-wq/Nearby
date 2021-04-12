@@ -74,8 +74,8 @@ class SearchResultViewController: UIViewController {
     private func setupCollectionView(_ collectionView: UICollectionView) {
         collectionView.dataSource = self
         collectionView.delegate   = self
-        collectionView.register(UINib(nibName: "SearchResultShopCell", bundle: nil),
-                                forCellWithReuseIdentifier: "SearchResultShopCell")
+        collectionView.register(UINib(nibName: SearchResultShopCell.reuseIdentifier, bundle: nil),
+                                forCellWithReuseIdentifier: SearchResultShopCell.reuseIdentifier)
         collectionView.collectionViewLayout = createLayout()
     }
     
