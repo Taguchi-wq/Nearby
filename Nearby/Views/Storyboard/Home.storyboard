@@ -51,11 +51,22 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="shopsCollectionView" destination="V24-qW-MBy" id="bHP-yX-0MI"/>
+                        <segue destination="7yT-7F-7Vk" kind="show" id="Yd2-YV-P7J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sj9-36-8uM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1086.9565217391305" y="128.57142857142856"/>
+        </scene>
+        <!--ShopDetail-->
+        <scene sceneID="oI2-Dm-vy3">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ShopDetailViewController" storyboardName="ShopDetail" id="7yT-7F-7Vk" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ldr-El-fYf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1dP-lj-s4m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1872" y="129"/>
         </scene>
         <!--ホーム-->
         <scene sceneID="r0o-mT-epc">

@@ -29,7 +29,7 @@ class ShopCell: UICollectionViewCell {
     /// - Parameters:
     ///   - imageURL: お店のサムネイルとして表示する画像のURL
     ///   - name: お店の名前
-    ///   - genre: お店のジャンル  
+    ///   - genre: お店のジャンル
     func initialize(imageURL: String, name: String, genre: String) {
         thumbnailImageView.setupImage(imageURL: imageURL)
         nameLabel.text  = name

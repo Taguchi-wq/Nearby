@@ -42,6 +42,12 @@ class ShopDetailViewController: UIViewController {
         setupCollectionView(detailCollectionView)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     /// ShopDetailViewControllerを初期化する
     /// - Parameters:
     ///   - thumbnailURL: 店舗の画像URL

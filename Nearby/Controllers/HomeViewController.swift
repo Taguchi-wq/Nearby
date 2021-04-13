@@ -44,6 +44,12 @@ class HomeViewController: UIViewController {
         setupCollectionView(shopsCollectionView)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -242,7 +248,19 @@ extension HomeViewController: UICollectionViewDataSource {
 
 
 // MARK: - UICollectionViewDelegate
-extension HomeViewController: UICollectionViewDelegate {}
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            break
+        default:
+            let shopDetailViewController = storyboard?.instantiateViewController(withIdentifier: ShopDetailViewController.reuseIdentifier) as! ShopDetailViewController
+            let shop = shops[indexPath.row]
+            shopDetailViewController.initialize(thumbnailURL: shop.photo.pc.l, name: shop.name, address: shop.address, open: shop.open)
+            navigationController?.pushViewController(shopDetailViewController, animated: true)
+        }
+    }
+}
 
 
 // MARK: - CLLocationManagerDelegate
