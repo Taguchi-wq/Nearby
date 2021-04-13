@@ -241,7 +241,7 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 
-// MARK: -
+// MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {}
 
 
