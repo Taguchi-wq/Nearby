@@ -252,7 +252,9 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            break
+            let searchResultViewController = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.reuseIdentifier) as! SearchResultViewController
+            searchResultViewController.initialize(keyword: categorys[indexPath.row])
+            navigationController?.pushViewController(searchResultViewController, animated: true)
         default:
             let shopDetailViewController = storyboard?.instantiateViewController(withIdentifier: ShopDetailViewController.reuseIdentifier) as! ShopDetailViewController
             let shop = shops[indexPath.row]

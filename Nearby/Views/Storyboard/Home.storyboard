@@ -52,11 +52,22 @@
                     <connections>
                         <outlet property="shopsCollectionView" destination="V24-qW-MBy" id="bHP-yX-0MI"/>
                         <segue destination="7yT-7F-7Vk" kind="show" id="Yd2-YV-P7J"/>
+                        <segue destination="ssJ-Iz-CM1" kind="show" id="cr8-Ei-iV3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sj9-36-8uM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1086.9565217391305" y="128.57142857142856"/>
+        </scene>
+        <!--SearchResult-->
+        <scene sceneID="GSs-A7-lpz">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SearchResultViewController" storyboardName="SearchResult" id="ssJ-Iz-CM1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nrj-Iu-bc5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b1y-u0-LqL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1882" y="-11"/>
         </scene>
         <!--ShopDetail-->
         <scene sceneID="oI2-Dm-vy3">
@@ -66,7 +77,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dP-lj-s4m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1872" y="129"/>
+            <point key="canvasLocation" x="1872" y="240"/>
         </scene>
         <!--ホーム-->
         <scene sceneID="r0o-mT-epc">
