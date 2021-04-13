@@ -37,9 +37,13 @@
                                                             <segment title="300m"/>
                                                             <segment title="500m"/>
                                                             <segment title="1000m"/>
+                                                            <segment title="2000m"/>
                                                             <segment title="3000m"/>
                                                         </segments>
                                                         <color key="selectedSegmentTintColor" red="0.93777418140000002" green="0.46328425410000001" blue="0.076731927690000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="selectedRange:" destination="dba-0J-OGB" eventType="valueChanged" id="XXn-cW-SD8"/>
+                                                        </connections>
                                                     </segmentedControl>
                                                 </subviews>
                                             </stackView>
@@ -55,10 +59,13 @@
                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kzu-CO-sF6">
                                                         <rect key="frame" x="0.0" y="34" width="350" height="32"/>
                                                         <segments>
-                                                            <segment title="絞り込む"/>
                                                             <segment title="絞り込まない"/>
+                                                            <segment title="絞り込む"/>
                                                         </segments>
                                                         <color key="selectedSegmentTintColor" red="0.93777418140000002" green="0.46328425410000001" blue="0.076731927690000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="selectedPrivateRoom:" destination="dba-0J-OGB" eventType="valueChanged" id="XHd-WM-8rG"/>
+                                                        </connections>
                                                     </segmentedControl>
                                                 </subviews>
                                             </stackView>

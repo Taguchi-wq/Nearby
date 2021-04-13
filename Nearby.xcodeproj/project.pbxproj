@@ -35,6 +35,8 @@
 		7F3E8BC626234046003124DC /* ShopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3E8BC426234045003124DC /* ShopCell.xib */; };
 		7F3E8BCE262343B4003124DC /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E8BCD262343B4003124DC /* Genre.swift */; };
 		7F3E8BDF26234EF0003124DC /* PC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E8BDE26234EF0003124DC /* PC.swift */; };
+		7F69EDE1262443B700BBAADC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F69EDE0262443B700BBAADC /* Constants.swift */; };
+		7F69EDE6262457F700BBAADC /* ConditionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F69EDE5262457F700BBAADC /* ConditionsDelegate.swift */; };
 		7F82176F2621D51D0068ADD4 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82176E2621D51D0068ADD4 /* UIImageView+Extension.swift */; };
 		7FC958A226241E5E00BA369B /* SearchConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC958A126241E5D00BA369B /* SearchConditions.storyboard */; };
 		7FC958A72624261B00BA369B /* SearchConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC958A62624261B00BA369B /* SearchConditionsViewController.swift */; };
@@ -103,6 +105,8 @@
 		7F3E8BC426234045003124DC /* ShopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopCell.xib; sourceTree = "<group>"; };
 		7F3E8BCD262343B4003124DC /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		7F3E8BDE26234EF0003124DC /* PC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PC.swift; sourceTree = "<group>"; };
+		7F69EDE0262443B700BBAADC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7F69EDE5262457F700BBAADC /* ConditionsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsDelegate.swift; sourceTree = "<group>"; };
 		7F82176E2621D51D0068ADD4 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		7FC958A126241E5D00BA369B /* SearchConditions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchConditions.storyboard; sourceTree = "<group>"; };
 		7FC958A62624261B00BA369B /* SearchConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConditionsViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 			children = (
 				7F177990261FF1DA000AAC18 /* NetworkManager.swift */,
 				7F3E8B9B26223E78003124DC /* Alert.swift */,
+				7F69EDE0262443B700BBAADC /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 			children = (
 				7FD78C5D261F08EE00DE6DC1 /* Reusable.swift */,
 				7F3E8B7D26221F6A003124DC /* ShopThumbnailCellDelegate.swift */,
+				7F69EDE5262457F700BBAADC /* ConditionsDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -506,6 +512,7 @@
 				7F3E8BDF26234EF0003124DC /* PC.swift in Sources */,
 				7F1779A8261FF51A000AAC18 /* Photo.swift in Sources */,
 				7FD4F9D82621964300B2E25F /* SearchResultShopCell.swift in Sources */,
+				7F69EDE1262443B700BBAADC /* Constants.swift in Sources */,
 				7F3E8B962622363A003124DC /* ShopOpenCell.swift in Sources */,
 				7FD78C4C261EF19500DE6DC1 /* SearchViewController.swift in Sources */,
 				7F021935261FE8B300DC540C /* SearchResultViewController.swift in Sources */,
@@ -522,6 +529,7 @@
 				7FD78C54261F04D400DE6DC1 /* CategoryCell.swift in Sources */,
 				7FD78C5E261F08EE00DE6DC1 /* Reusable.swift in Sources */,
 				7F3E8B85262227DF003124DC /* ShopInformationCell.swift in Sources */,
+				7F69EDE6262457F700BBAADC /* ConditionsDelegate.swift in Sources */,
 				7F3E8B7E26221F6A003124DC /* ShopThumbnailCellDelegate.swift in Sources */,
 				7F177999261FF254000AAC18 /* SearchResponse.swift in Sources */,
 				7F3E8B8F26222A67003124DC /* ShopAddressCell.swift in Sources */,

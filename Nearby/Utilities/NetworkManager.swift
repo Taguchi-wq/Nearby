@@ -28,8 +28,17 @@ struct NetworkManager {
     ///   - latitude: 店舗の緯度
     ///   - longitude: 店舗の経度
     ///   - completion: 処理終了後
-    func getShop(_ keyword: String, latitude: Double, longitude: Double, completion: @escaping (Result<[Shop], ClientError>) -> Void) {
-        let hotPepperURL = baseURL + path + apiKey + "&keyword=\(keyword)&lat=\(latitude)&lng=\(longitude)&format=json"
+    ///   - range: 検索範囲
+    ///   - privateRoom: 個室の有無
+    func getShop(_ keyword: String, latitude: Double, longitude: Double, range: SelectedRange, privateRoom: SelectedPrivateRoom, completion: @escaping (Result<[Shop], ClientError>) -> Void) {
+        let keyword = "&keyword=\(keyword)"
+        let latitude = "&lat=\(latitude)"
+        let longitude = "&lng=\(longitude)"
+        let range = "&range=\(range)"
+        let privateRoom = "&private_room=\(privateRoom)"
+        let format = "&format=json"
+        
+        let hotPepperURL = baseURL + path + apiKey + keyword + latitude + longitude + range + privateRoom + format
         let encodeURL = hotPepperURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         
         // URLが存在しなかった時の処理

@@ -33,6 +33,10 @@ class SearchResultViewController: UIViewController {
     private var longitude = Double()
     /// マップに表示する範囲
     private let regionInMeters: Double = 3000
+    /// 検索範囲
+    private var selectedRange: SelectedRange = .meters1000
+    /// 個室の有無
+    private var selectedPrivateRoom: SelectedPrivateRoom = .notNarrowDown
     
     
     // MARK: - Methods
@@ -42,7 +46,8 @@ class SearchResultViewController: UIViewController {
         setupTextField(searchTextField)
         setupCollectionView(shopsCollectionView)
         checkLocationServices()
-        displayShops()
+        displayShops(keyword: keyword, latitude: latitude, longitude: longitude, range: selectedRange, privateRoom: selectedPrivateRoom)
+        print(latitude, longitude)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,15 +85,25 @@ class SearchResultViewController: UIViewController {
     }
     
     /// 画面に店舗を表示する
-    private func displayShops() {
+    /// - Parameters:
+    ///   - keyword: 検索したいキーワード
+    ///   - latitude: 現在地の緯度
+    ///   - longitude: 現在地の経度
+    ///   - range: 検索範囲
+    ///   - privateRoom: 個室の有無
+    private func displayShops(keyword: String, latitude: Double, longitude: Double, range: SelectedRange, privateRoom: SelectedPrivateRoom) {
         searchTextField.text = keyword
-        getShop(keyword: keyword, latitude: latitude, longitude: longitude)
+        getShop(keyword: keyword, latitude: latitude, longitude: longitude, range: range, privateRoom: privateRoom)
     }
     
     /// 近くの店舗を取得する
     /// - Parameter keyword: 検索キーワード
-    private func getShop(keyword: String, latitude: Double, longitude: Double) {
-        NetworkManager.shared.getShop(keyword, latitude: latitude, longitude: longitude) { result in
+    /// - Parameter latitude: 現在地の緯度
+    /// - Parameter longitude: 現在地の経度
+    /// - Parameter range: 検索範囲
+    /// - Parameter privateRoom: 個室の有無
+    private func getShop(keyword: String, latitude: Double, longitude: Double, range: SelectedRange, privateRoom: SelectedPrivateRoom) {
+        NetworkManager.shared.getShop(keyword, latitude: latitude, longitude: longitude, range: range, privateRoom: privateRoom) { result in
             switch result {
             case .success(let shops):
                 print(shops.count)
@@ -193,6 +208,7 @@ class SearchResultViewController: UIViewController {
     /// 検索条件を決める画面へ遷移する
     @IBAction func determineCondition(_ sender: Any) {
         let searchConditionsViewController = storyboard?.instantiateViewController(withIdentifier: SearchConditionsViewController.reuseIdentifier) as! SearchConditionsViewController
+        searchConditionsViewController.initialize(delegate: self, selectedRange: selectedRange, selectedPrivateRoom: selectedPrivateRoom)
         present(searchConditionsViewController, animated: true, completion: nil)
     }
     
@@ -244,7 +260,8 @@ extension SearchResultViewController: UITextFieldDelegate {
         
         // 検索窓口に入力されたキーワードで検索する
         guard let keyword = searchTextField.text else { return true }
-        getShop(keyword: keyword, latitude: latitude,longitude: longitude)
+        self.keyword = keyword
+        getShop(keyword: keyword, latitude: latitude, longitude: longitude, range: selectedRange, privateRoom: selectedPrivateRoom)
         
         // キーボードを閉じる
         textField.resignFirstResponder()
@@ -281,6 +298,16 @@ extension SearchResultViewController: UICollectionViewDelegate {
         let shop = shops[indexPath.row]
         shopDetailViewController.initialize(thumbnailURL: shop.photo.pc.l, name: shop.name, address: shop.address, open: shop.open)
         navigationController?.pushViewController(shopDetailViewController, animated: true)
+    }
+}
+
+
+// MARK: - ConditionsDelegate
+extension SearchResultViewController: ConditionsDelegate {
+    func adaptedConditions(selectedRange: SelectedRange, selectedPrivateRoom: SelectedPrivateRoom) {
+        self.selectedRange       = selectedRange
+        self.selectedPrivateRoom = selectedPrivateRoom
+        getShop(keyword: keyword, latitude: latitude, longitude: longitude, range: selectedRange, privateRoom: selectedPrivateRoom)
     }
 }
 

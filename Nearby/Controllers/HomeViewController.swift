@@ -47,8 +47,7 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        print(latitude, longitude)
-        getShop(keyword: "", latitude: latitude, longitude: longitude)
+        getShop(keyword: String(), latitude: latitude, longitude: longitude, range: .meters1000, privateRoom: .notNarrowDown)
     }
     
     /// locationManagerの設定を行う
@@ -110,10 +109,15 @@ class HomeViewController: UIViewController {
     
     /// 近くの店舗を取得する
     /// - Parameter keyword: 検索キーワード
-    private func getShop(keyword: String, latitude: Double, longitude: Double) {
-        NetworkManager.shared.getShop(keyword, latitude: latitude, longitude: longitude) { result in
+    /// - Parameter latitude: 現在地の緯度
+    /// - Parameter longitude: 現在地の経度
+    /// - Parameter range: 検索範囲
+    /// - Parameter privateRoom: 個室の有無
+    private func getShop(keyword: String, latitude: Double, longitude: Double, range: SelectedRange, privateRoom: SelectedPrivateRoom) {
+        NetworkManager.shared.getShop(keyword, latitude: latitude, longitude: longitude, range: range, privateRoom: privateRoom) { result in
             switch result {
             case .success(let shops):
+                print(shops.count)
                 self.updateUI(shops: shops)
             case .failure(let error):
                 self.searchFailure(error: error)
