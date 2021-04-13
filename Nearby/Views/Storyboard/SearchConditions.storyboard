@@ -102,7 +102,14 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5C-4C-BpM">
                                 <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                                 <items>
-                                    <navigationItem title="検索条件" id="gZi-hL-xCY"/>
+                                    <navigationItem title="検索条件" id="gZi-hL-xCY">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="pPa-e9-7yF">
+                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="close:" destination="dba-0J-OGB" id="mBa-Ll-cyf"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>

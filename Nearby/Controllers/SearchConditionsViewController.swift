@@ -78,6 +78,9 @@ class SearchConditionsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func close(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 
