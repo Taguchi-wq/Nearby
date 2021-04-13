@@ -129,15 +129,15 @@ extension ShopDetailViewController {
     /// - Returns: 店舗名を表示するレイアウト
     private func nameLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
+                                              heightDimension: .estimated(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalHeight(0.1))
+                                               heightDimension: .estimated(1))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
+        section.contentInsets = .init(top: 10, leading: 10, bottom: 0, trailing: 10)
         
         return section
     }
