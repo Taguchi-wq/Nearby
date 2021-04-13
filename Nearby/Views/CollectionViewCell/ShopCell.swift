@@ -22,9 +22,7 @@ class ShopCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        layer.cornerRadius = 10
-        layer.borderWidth  = 1
-        layer.borderColor  = UIColor.black.cgColor
+        thumbnailImageView.layer.cornerRadius = 10
     }
     
     /// ShopCellを初期化する
