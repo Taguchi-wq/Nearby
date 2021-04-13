@@ -65,7 +65,7 @@ class SearchViewController: UIViewController {
         searchResultViewController.initialize(keyword: keyword)
         navigationController?.pushViewController(searchResultViewController, animated: true)
     }
-
+    
 }
 
 
@@ -114,6 +114,7 @@ extension SearchViewController: UICollectionViewDataSource {
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         transitionSearchResultViewController(keyword: categorys[indexPath.row])
+        searchField.resignFirstResponder()
     }
 }
 

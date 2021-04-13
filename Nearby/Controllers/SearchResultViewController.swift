@@ -200,6 +200,11 @@ class SearchResultViewController: UIViewController {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 画面をタップした時にキーボードを閉じる
+        searchTextField.resignFirstResponder()
+    }
+    
     
     // MARK: - @IBActions
     @IBAction func back(_ sender: Any) {
@@ -210,6 +215,7 @@ class SearchResultViewController: UIViewController {
     @IBAction func determineCondition(_ sender: Any) {
         let searchConditionsViewController = storyboard?.instantiateViewController(withIdentifier: SearchConditionsViewController.reuseIdentifier) as! SearchConditionsViewController
         searchConditionsViewController.initialize(delegate: self, selectedRange: selectedRange, selectedPrivateRoom: selectedPrivateRoom)
+        searchTextField.resignFirstResponder()
         present(searchConditionsViewController, animated: true, completion: nil)
     }
     
