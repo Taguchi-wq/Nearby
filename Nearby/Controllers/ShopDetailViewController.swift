@@ -46,6 +46,7 @@ class ShopDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden            = true
     }
     
     /// ShopDetailViewControllerを初期化する
