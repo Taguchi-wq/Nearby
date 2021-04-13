@@ -8,14 +8,6 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    
-    // MARK: - Enums
-    /// categoryCollectionViewのレイアウトのセクション
-    private enum SectionLayoutKind: CaseIterable {
-        case conditions
-        case categorys
-    }
-    
 
     // MARK: - @IBOutlets
     /// 検索窓口
@@ -25,8 +17,6 @@ class SearchViewController: UIViewController {
     
     
     // MARK: - Propertys
-    /// 条件
-    private let conditions = ["500m", "クーポンあり"]
     /// カテゴリー
     private let categorys = ["ハンバーガー", "ラーメン", "寿司", "中華料理", "居酒屋", "焼肉", "カフェ", "イタリアン", "デザート"]
     
@@ -85,56 +75,21 @@ extension SearchViewController {
     /// SearchViewControllerのレイアウトを作る
     /// - Returns: SearchViewControllerのレイアウト
     private func createLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout {
-            (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            
-            let sectionLayoutKind = SectionLayoutKind.allCases[sectionIndex]
-            switch sectionLayoutKind {
-            case .conditions:
-                return self.conditionsLayout()
-            case .categorys:
-                return self.categorysLayout()
-            }
-        }
-        return layout
-    }
-    
-    /// 条件を表示するレイアウト
-    /// - Returns: 条件を表示するレイアウト
-    private func conditionsLayout() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(1),
-                                              heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(1),
-                                               heightDimension: .fractionalHeight(0.07))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .continuous
-        section.interGroupSpacing = 10
-        section.contentInsets = .init(top: 50, leading: 30, bottom: 10, trailing: 10)
-        
-        return section
-    }
-    
-    /// カテゴリーを表示するレイアウト
-    /// - Returns: カテゴリーを表示するレイアウト
-    private func categorysLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 15)
+        item.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                heightDimension: .absolute(categoryCollectionView.bounds.width / 3 - 50))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 30
-        section.contentInsets = .init(top: 80, leading: 30, bottom: 30, trailing: 30)
+        section.interGroupSpacing = 20
+        section.contentInsets = .init(top: 80, leading: 20, bottom: 0, trailing: 20)
         
-        return section
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
     }
     
 }
@@ -142,29 +97,14 @@ extension SearchViewController {
 // MARK: - UICollectionViewDataSource
 extension SearchViewController: UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return SectionLayoutKind.allCases.count
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 2
-        } else {
-            return categorys.count
-        }
+        return categorys.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.section {
-        case 0:
-            let conditionCell = collectionView.dequeueReusableCell(withReuseIdentifier: ConditionCell.reuseIdentifier, for: indexPath) as! ConditionCell
-            conditionCell.initialize(condition: conditions[indexPath.row])
-            return conditionCell
-        default:
-            let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseIdentifier, for: indexPath) as! CategoryCell
-            categoryCell.initialize(imageName: categorys[indexPath.row])
-            return categoryCell
-        }
+        let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseIdentifier, for: indexPath) as! CategoryCell
+        categoryCell.initialize(imageName: categorys[indexPath.row])
+        return categoryCell
     }
     
 }
@@ -173,9 +113,7 @@ extension SearchViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            transitionSearchResultViewController(keyword: categorys[indexPath.row])
-        }
+        transitionSearchResultViewController(keyword: categorys[indexPath.row])
     }
 }
 
