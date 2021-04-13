@@ -31,15 +31,16 @@ struct NetworkManager {
     ///   - range: 検索範囲
     ///   - privateRoom: 個室の有無
     func getShop(_ keyword: String, latitude: Double, longitude: Double, range: SelectedRange, privateRoom: SelectedPrivateRoom, completion: @escaping (Result<[Shop], ClientError>) -> Void) {
-        let keyword = "&keyword=\(keyword)"
-        let latitude = "&lat=\(latitude)"
-        let longitude = "&lng=\(longitude)"
-        let range = "&range=\(range.rawValue)"
+        
+        let keyword     = "&keyword=\(keyword)"
+        let latitude    = "&lat=\(latitude)"
+        let longitude   = "&lng=\(longitude)"
+        let range       = "&range=\(range.rawValue)"
         let privateRoom = "&private_room=\(privateRoom.rawValue)"
-        let format = "&format=json"
+        let format      = "&format=json"
         
         let hotPepperURL = baseURL + path + apiKey + keyword + latitude + longitude + range + privateRoom + format
-        let encodeURL = hotPepperURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let encodeURL    = hotPepperURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         
         // URLが存在しなかった時の処理
         guard let url = URL(string: encodeURL) else {

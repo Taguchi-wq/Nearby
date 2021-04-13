@@ -51,12 +51,6 @@ class HomeViewController: UIViewController {
         tabBarController?.tabBar.isHidden            = false
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        getShop(keyword: String(), latitude: latitude, longitude: longitude, range: .meters1000, privateRoom: .notNarrowDown)
-    }
-    
     /// locationManagerの設定を行う
     private func setupLocationManager() {
         locationManager.delegate        = self
@@ -87,6 +81,7 @@ class HomeViewController: UIViewController {
         switch locationManager.authorizationStatus {
         case .authorizedWhenInUse:
             getLocation()
+            getShop(keyword: String(), latitude: latitude, longitude: longitude, range: .meters1000, privateRoom: .notNarrowDown)
             locationManager.startUpdatingLocation()
         case .denied:
             Alert.showLocationInformationPermission(on: self)
