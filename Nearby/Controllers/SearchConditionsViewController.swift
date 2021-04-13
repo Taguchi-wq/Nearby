@@ -61,24 +61,24 @@ class SearchConditionsViewController: UIViewController {
     
     
     // MARK: - @IBActions
-    @IBAction func selectedRange(_ sender: UISegmentedControl) {
+    @IBAction private func selectedRange(_ sender: UISegmentedControl) {
         if let selectedRange = SelectedRange(rawValue: sender.selectedSegmentIndex + 1) {
             self.selectedRange = selectedRange
         }
     }
     
-    @IBAction func selectedPrivateRoom(_ sender: UISegmentedControl) {
+    @IBAction private func selectedPrivateRoom(_ sender: UISegmentedControl) {
         if let selectedPrivateRoom = SelectedPrivateRoom(rawValue: sender.selectedSegmentIndex) {
             self.selectedPrivateRoom = selectedPrivateRoom
         }
     }
     
-    @IBAction func adapt(_ sender: Any) {
+    @IBAction private func adapt(_ sender: Any) {
         delegate?.adaptedConditions(selectedRange: selectedRange, selectedPrivateRoom: selectedPrivateRoom)
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func close(_ sender: Any) {
+    @IBAction private func close(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 }

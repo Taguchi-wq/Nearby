@@ -207,12 +207,12 @@ class SearchResultViewController: UIViewController {
     
     
     // MARK: - @IBActions
-    @IBAction func back(_ sender: Any) {
+    @IBAction private func back(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
     /// 検索条件を決める画面へ遷移する
-    @IBAction func determineCondition(_ sender: Any) {
+    @IBAction private func determineCondition(_ sender: Any) {
         let searchConditionsViewController = storyboard?.instantiateViewController(withIdentifier: SearchConditionsViewController.reuseIdentifier) as! SearchConditionsViewController
         searchConditionsViewController.initialize(delegate: self, selectedRange: selectedRange, selectedPrivateRoom: selectedPrivateRoom)
         searchTextField.resignFirstResponder()

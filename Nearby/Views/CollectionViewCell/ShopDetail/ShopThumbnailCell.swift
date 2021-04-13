@@ -43,7 +43,7 @@ class ShopThumbnailCell: UICollectionViewCell {
     
     
     // MARK: - @IBActions
-    @IBAction func back(_ sender: Any) {
+    @IBAction private func back(_ sender: Any) {
         delegate?.back()
     }
     
