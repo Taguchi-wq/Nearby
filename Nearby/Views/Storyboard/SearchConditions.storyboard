@@ -84,11 +84,11 @@
                                             <constraint firstAttribute="height" constant="60" id="VeF-9w-EPM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <state key="normal" title="適応する">
+                                        <state key="normal" title="決定">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="adapt:" destination="dba-0J-OGB" eventType="touchUpInside" id="flD-P0-FJu"/>
+                                            <action selector="decide:" destination="dba-0J-OGB" eventType="touchUpInside" id="lBO-1x-q72"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -127,7 +127,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="検索条件" id="AY2-jB-4BI"/>
                     <connections>
-                        <outlet property="adaptButton" destination="ZI5-ee-tbz" id="avv-YV-9j4"/>
+                        <outlet property="decideButton" destination="ZI5-ee-tbz" id="xTs-os-Psz"/>
                         <outlet property="privateRoomSegmentedControl" destination="Kzu-CO-sF6" id="bAL-NJ-pCu"/>
                         <outlet property="rangeSegmentedControl" destination="WLr-C1-6sr" id="vrm-Iu-nlb"/>
                     </connections>

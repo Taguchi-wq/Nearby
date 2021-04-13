@@ -14,8 +14,8 @@ class SearchConditionsViewController: UIViewController {
     @IBOutlet private weak var rangeSegmentedControl: UISegmentedControl!
     /// 個室の有無を選択するSegmentedControl
     @IBOutlet private weak var privateRoomSegmentedControl: UISegmentedControl!
-    /// 条件を適応させるボタン
-    @IBOutlet private weak var adaptButton: UIButton!
+    /// 条件を決定するボタン
+    @IBOutlet private weak var decideButton: UIButton!
     
     
     // MARK: - Propetys
@@ -31,7 +31,7 @@ class SearchConditionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adaptButton.layer.cornerRadius = 10
+        decideButton.layer.cornerRadius = 10
         setupSegmentedControl(selectedRange: selectedRange, selectedPrivateRoom: selectedPrivateRoom)
     }
     
@@ -73,7 +73,7 @@ class SearchConditionsViewController: UIViewController {
         }
     }
     
-    @IBAction private func adapt(_ sender: Any) {
+    @IBAction private func decide(_ sender: Any) {
         delegate?.adaptedConditions(selectedRange: selectedRange, selectedPrivateRoom: selectedPrivateRoom)
         dismiss(animated: true, completion: nil)
     }
