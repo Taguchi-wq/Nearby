@@ -34,8 +34,8 @@ struct NetworkManager {
         let keyword = "&keyword=\(keyword)"
         let latitude = "&lat=\(latitude)"
         let longitude = "&lng=\(longitude)"
-        let range = "&range=\(range)"
-        let privateRoom = "&private_room=\(privateRoom)"
+        let range = "&range=\(range.rawValue)"
+        let privateRoom = "&private_room=\(privateRoom.rawValue)"
         let format = "&format=json"
         
         let hotPepperURL = baseURL + path + apiKey + keyword + latitude + longitude + range + privateRoom + format
