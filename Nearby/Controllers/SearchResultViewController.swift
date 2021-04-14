@@ -106,7 +106,12 @@ class SearchResultViewController: UIViewController {
     /// - Parameter range: 検索範囲
     /// - Parameter privateRoom: 個室の有無
     private func getShop(keyword: String, latitude: Double, longitude: Double, range: SelectedRange, privateRoom: SelectedPrivateRoom) {
-        NetworkManager.shared.getShop(keyword, latitude: latitude, longitude: longitude, range: range, privateRoom: privateRoom) { result in
+        let components = NetworkManager.makeShopSearchURLComponents(keyword: keyword,
+                                                                    latitude: latitude,
+                                                                    longitude: longitude,
+                                                                    range: range,
+                                                                    privateRoom: privateRoom)
+        NetworkManager.getShop(components) { result in
             switch result {
             case .success(let shops):
                 print(shops.count)

@@ -10,19 +10,8 @@ import Foundation
 /// APIを用いた通信を行う
 struct NetworkManager {
     
-    // MARK: - Propetys
-    static  let shared  = NetworkManager()
-    private let baseURL = "https://webservice.recruit.co.jp/"
-    private let path    = "hotpepper/gourmet/v1/?key="
-    private let apiKey  = "07bb9f8aa0569538"
-    
-    
-    // MARK: - Initialize
-    private init() {}
-    
-    
     // MARK: - Methods
-    /// 店舗のデータを取得する
+    /// お店の情報を取得するURLのコンポーネントを作る
     /// - Parameters:
     ///   - keyword: 検索キーワード
     ///   - latitude: 店舗の緯度
@@ -30,21 +19,35 @@ struct NetworkManager {
     ///   - completion: 処理終了後
     ///   - range: 検索範囲
     ///   - privateRoom: 個室の有無
-    func getShop(_ keyword: String, latitude: Double, longitude: Double, range: SelectedRange, privateRoom: SelectedPrivateRoom, completion: @escaping (Result<[Shop], ClientError>) -> Void) {
+    /// - Returns: URLのコンポーネント
+    static func makeShopSearchURLComponents(keyword: String, latitude: Double, longitude: Double, range: SelectedRange, privateRoom: SelectedPrivateRoom) -> URLComponents {
         
-        let keyword     = "&keyword=\(keyword)"
-        let latitude    = "&lat=\(latitude)"
-        let longitude   = "&lng=\(longitude)"
-        let range       = "&range=\(range.rawValue)"
-        let privateRoom = "&private_room=\(privateRoom.rawValue)"
-        let format      = "&format=json"
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host   = "webservice.recruit.co.jp"
+        components.path   = "/hotpepper/gourmet/v1/"
+
+        components.queryItems = [
+            URLQueryItem(name: "key", value: "07bb9f8aa0569538"),
+            URLQueryItem(name: "format", value: "json"),
+            URLQueryItem(name: "count", value: "100"),
+            URLQueryItem(name: "keyword", value: keyword),
+            URLQueryItem(name: "lat", value: "\(latitude)"),
+            URLQueryItem(name: "lng", value: "\(longitude)"),
+            URLQueryItem(name: "range", value: "\(range.rawValue)"),
+            URLQueryItem(name: "private_room", value: "\(privateRoom.rawValue)")
+        ]
         
-        let hotPepperURL = baseURL + path + apiKey + keyword + latitude + longitude + range + privateRoom + format
-        let encodeURL    = hotPepperURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        
+        return components
+    }
+    
+    /// 店舗のデータを取得する
+    /// - Parameters:
+    ///   - components: URLのコンポーネント
+    ///   - completion: 処理終了後
+    static func getShop(_ components: URLComponents, completion: @escaping (Result<[Shop], ClientError>) -> Void) {
         // URLが存在しなかった時の処理
-        guard let url = URL(string: encodeURL) else {
-            print(hotPepperURL)
+        guard let url = components.url else {
             completion(.failure(.invalidShop))
             return
         }
