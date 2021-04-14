@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--探す-->
         <scene sceneID="gZ0-w9-qLx">
             <objects>
                 <viewController storyboardIdentifier="SearchViewController" id="ISt-zK-65R" customClass="SearchViewController" customModule="Nearby" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,6 +71,7 @@
                             <constraint firstItem="M9t-sD-d3I" firstAttribute="bottom" secondItem="nCc-UV-vjw" secondAttribute="bottom" id="r6P-3i-g9G"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="探す" image="magnifyingglass" catalog="system" id="Ay7-cn-ZKt"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="eP6-NF-5Ux"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -109,7 +110,6 @@
         <scene sceneID="om8-te-JdW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="1yp-Tv-0bc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="q7g-Q3-R0Q"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qia-x8-myz">
                         <autoresizingMask key="autoresizingMask"/>

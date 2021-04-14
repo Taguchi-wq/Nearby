@@ -15,10 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.93777418140000002" green="0.46328425410000001" blue="0.076731927690000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="biE-F9-vtt" kind="relationship" relationship="viewControllers" id="fmk-iP-7Kz"/>
-                        <segue destination="VSM-V9-I1s" kind="relationship" relationship="viewControllers" id="BIa-cE-F9L"/>
+                        <segue destination="VSM-V9-I1s" kind="relationship" relationship="viewControllers" id="wNn-ix-XCp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYQ-7L-p7n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -29,7 +30,7 @@
         <scene sceneID="7BV-2x-gMD">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="HomeViewController" storyboardName="Home" id="biE-F9-vtt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="2Fv-Y2-OhO"/>
+                    <tabBarItem key="tabBarItem" title="ホーム" image="house.fill" catalog="system" id="2Fv-Y2-OhO"/>
                     <navigationItem key="navigationItem" id="2WX-F8-pNs"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43H-Bn-acS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -40,11 +41,15 @@
         <scene sceneID="daY-6D-UEA">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="SearchViewController" storyboardName="Search" id="VSM-V9-I1s" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="hVx-28-I5f"/>
+                    <tabBarItem key="tabBarItem" title="探す" image="magnifyingglass" catalog="system" id="hVx-28-I5f"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Okl-2p-bRm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1814" y="214"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+    </resources>
 </document>

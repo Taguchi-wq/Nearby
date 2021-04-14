@@ -47,6 +47,7 @@
                             <constraint firstItem="V24-qW-MBy" firstAttribute="trailing" secondItem="wyK-2U-cRR" secondAttribute="trailing" id="y1k-az-qA5"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="ホーム" image="house.fill" catalog="system" id="8bk-lb-4pH"/>
                     <navigationItem key="navigationItem" title="近くのお店" id="kha-Ol-X0g"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -79,11 +80,10 @@
             </objects>
             <point key="canvasLocation" x="1872" y="240"/>
         </scene>
-        <!--ホーム-->
+        <!--Navigation Controller-->
         <scene sceneID="r0o-mT-epc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O4J-E2-bIe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ホーム" image="house.fill" catalog="system" id="nEv-7u-xLh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="JUR-LZ-bRl">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
