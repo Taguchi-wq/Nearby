@@ -37,6 +37,7 @@
 		7F3E8BDF26234EF0003124DC /* PC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3E8BDE26234EF0003124DC /* PC.swift */; };
 		7F69EDE1262443B700BBAADC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F69EDE0262443B700BBAADC /* Constants.swift */; };
 		7F69EDE6262457F700BBAADC /* ConditionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F69EDE5262457F700BBAADC /* ConditionsDelegate.swift */; };
+		7F69EDF42625B27D00BBAADC /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 7F69EDF32625B27D00BBAADC /* JGProgressHUD */; };
 		7F82176F2621D51D0068ADD4 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82176E2621D51D0068ADD4 /* UIImageView+Extension.swift */; };
 		7FC958A226241E5E00BA369B /* SearchConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC958A126241E5D00BA369B /* SearchConditions.storyboard */; };
 		7FC958A72624261B00BA369B /* SearchConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC958A62624261B00BA369B /* SearchConditionsViewController.swift */; };
@@ -139,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F69EDF42625B27D00BBAADC /* JGProgressHUD in Frameworks */,
 				7FD4F9F32621D43A00B2E25F /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +377,7 @@
 			name = Nearby;
 			packageProductDependencies = (
 				7FD4F9F22621D43A00B2E25F /* Nuke */,
+				7F69EDF32625B27D00BBAADC /* JGProgressHUD */,
 			);
 			productName = Nearby;
 			productReference = 7FD49B04261ECC4E002F1823 /* Nearby.app */;
@@ -449,6 +452,7 @@
 			mainGroup = 7FD49AFB261ECC4E002F1823;
 			packageReferences = (
 				7FD4F9F12621D43A00B2E25F /* XCRemoteSwiftPackageReference "Nuke" */,
+				7F69EDF22625B27D00BBAADC /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = 7FD49B05261ECC4E002F1823 /* Products */;
 			projectDirPath = "";
@@ -871,6 +875,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7F69EDF22625B27D00BBAADC /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 		7FD4F9F12621D43A00B2E25F /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Nuke.git";
@@ -882,6 +894,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7F69EDF32625B27D00BBAADC /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F69EDF22625B27D00BBAADC /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
 		7FD4F9F22621D43A00B2E25F /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7FD4F9F12621D43A00B2E25F /* XCRemoteSwiftPackageReference "Nuke" */;

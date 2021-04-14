@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import JGProgressHUD
 
 class SearchResultViewController: UIViewController {
 
@@ -37,6 +38,8 @@ class SearchResultViewController: UIViewController {
     private var selectedRange: SelectedRange = .meters1000
     /// 個室の有無
     private var selectedPrivateRoom: SelectedPrivateRoom = .notNarrowDown
+    /// クルクル
+    private let indicator = JGProgressHUD()
     
     
     // MARK: - Methods
@@ -47,7 +50,6 @@ class SearchResultViewController: UIViewController {
         setupCollectionView(shopsCollectionView)
         checkLocationServices()
         displayShops(keyword: keyword, latitude: latitude, longitude: longitude, range: selectedRange, privateRoom: selectedPrivateRoom)
-        print(latitude, longitude)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -124,6 +126,7 @@ class SearchResultViewController: UIViewController {
             self.mapView.removeAnnotations(self.mapView.annotations)
             self.putAnnotations()
             self.shopsCollectionView.reloadData()
+            self.indicator.dismiss()
         }
     }
     
@@ -134,6 +137,7 @@ class SearchResultViewController: UIViewController {
         DispatchQueue.main.async {
             self.mapView.removeAnnotations(self.mapView.annotations)
             self.shopsCollectionView.reloadData()
+            self.indicator.dismiss()
             Alert.showBasic(on: self, message: error.rawValue)
         }
     }
@@ -185,6 +189,7 @@ class SearchResultViewController: UIViewController {
         case .authorizedWhenInUse:
             centerViewOnUserLocation()
             getLocation()
+            indicator.show(in: view)
             locationManager.startUpdatingLocation()
         case .denied:
             Alert.showLocationInformationPermission(on: self)
@@ -272,6 +277,8 @@ extension SearchResultViewController: UITextFieldDelegate {
         
         // キーボードを閉じる
         textField.resignFirstResponder()
+        // クルクルを回す
+        indicator.show(in: self.view)
         
         return true
     }
@@ -315,6 +322,7 @@ extension SearchResultViewController: ConditionsDelegate {
         self.selectedRange       = selectedRange
         self.selectedPrivateRoom = selectedPrivateRoom
         getShop(keyword: keyword, latitude: latitude, longitude: longitude, range: selectedRange, privateRoom: selectedPrivateRoom)
+        self.indicator.show(in: self.view)
     }
 }
 

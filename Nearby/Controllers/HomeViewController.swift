@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import JGProgressHUD
 
 class HomeViewController: UIViewController {
     
@@ -34,6 +35,8 @@ class HomeViewController: UIViewController {
     private var shops: [Shop] = []
     /// カテゴリー
     private let categorys = ["ハンバーガー", "ラーメン", "寿司", "中華料理", "居酒屋", "焼肉", "カフェ", "イタリアン", "デザート"]
+    /// クルクル
+    private let indicator = JGProgressHUD()
     
 
     // MARK: - Methods
@@ -82,6 +85,7 @@ class HomeViewController: UIViewController {
         case .authorizedWhenInUse:
             getLocation()
             getShop(keyword: String(), latitude: latitude, longitude: longitude, range: .meters1000, privateRoom: .notNarrowDown)
+            indicator.show(in: self.view)
             locationManager.startUpdatingLocation()
         case .denied:
             Alert.showLocationInformationPermission(on: self)
@@ -134,6 +138,7 @@ class HomeViewController: UIViewController {
         self.shops.append(contentsOf: shops)
         DispatchQueue.main.async {
             self.shopsCollectionView.reloadData()
+            self.indicator.dismiss()
         }
     }
     
@@ -143,6 +148,7 @@ class HomeViewController: UIViewController {
         self.shops = []
         DispatchQueue.main.async {
             self.shopsCollectionView.reloadData()
+            self.indicator.dismiss()
             Alert.showBasic(on: self, message: error.rawValue)
         }
     }
