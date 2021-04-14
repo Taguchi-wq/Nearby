@@ -60,6 +60,7 @@
 		7FD78C68261F3DF400DE6DC1 /* ConditionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD78C66261F3DF400DE6DC1 /* ConditionCell.xib */; };
 		7FE9C4172626ED1200B12B7A /* SelectedRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE9C4162626ED1200B12B7A /* SelectedRange.swift */; };
 		7FE9C41C2626ED3000B12B7A /* SelectedPrivateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE9C41B2626ED3000B12B7A /* SelectedPrivateRoom.swift */; };
+		7FE9C4282626F0E000B12B7A /* SearchViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE9C4272626F0E000B12B7A /* SearchViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,7 @@
 		7FD78C66261F3DF400DE6DC1 /* ConditionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConditionCell.xib; sourceTree = "<group>"; };
 		7FE9C4162626ED1200B12B7A /* SelectedRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRange.swift; sourceTree = "<group>"; };
 		7FE9C41B2626ED3000B12B7A /* SelectedPrivateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPrivateRoom.swift; sourceTree = "<group>"; };
+		7FE9C4272626F0E000B12B7A /* SearchViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +361,7 @@
 				7FD78C5D261F08EE00DE6DC1 /* Reusable.swift */,
 				7F3E8B7D26221F6A003124DC /* ShopThumbnailCellDelegate.swift */,
 				7F69EDE5262457F700BBAADC /* ConditionsDelegate.swift */,
+				7FE9C4272626F0E000B12B7A /* SearchViewDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				7F3E8B8F26222A67003124DC /* ShopAddressCell.swift in Sources */,
 				7F82176F2621D51D0068ADD4 /* UIImageView+Extension.swift in Sources */,
 				7F1779BD261FFBF0000AAC18 /* ClientError.swift in Sources */,
+				7FE9C4282626F0E000B12B7A /* SearchViewDelegate.swift in Sources */,
 				7FC958A72624261B00BA369B /* SearchConditionsViewController.swift in Sources */,
 				7F3E8B652621EF04003124DC /* ShopDetailViewController.swift in Sources */,
 			);

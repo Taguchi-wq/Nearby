@@ -55,9 +55,10 @@ class SearchViewController: UIViewController {
     
     /// SearchResultViewControllerにkeywordを渡して画面遷移する
     /// - Parameter keyword: 検索したいキーワード
-    private func transitionSearchResultViewController(keyword: String) {
+    /// - Parameter delegate: SearchViewDelegate
+    private func transitionSearchResultViewController(keyword: String, delegate: SearchViewDelegate) {
         let searchResultViewController = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.reuseIdentifier) as! SearchResultViewController
-        searchResultViewController.initialize(keyword: keyword)
+        searchResultViewController.initialize(keyword: keyword, delegate: self)
         navigationController?.pushViewController(searchResultViewController, animated: true)
     }
     
@@ -108,7 +109,7 @@ extension SearchViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        transitionSearchResultViewController(keyword: Constants.categorys[indexPath.row])
+        transitionSearchResultViewController(keyword: Constants.categorys[indexPath.row], delegate: self)
         searchField.resignFirstResponder()
     }
 }
@@ -122,11 +123,20 @@ extension SearchViewController: UITextFieldDelegate {
         
         // 入力されているキーワードで飲食店を探す
         guard let keyword = searchField.text else { return true }
-        transitionSearchResultViewController(keyword: keyword)
+        transitionSearchResultViewController(keyword: keyword, delegate: self)
         
         // キーボードを閉じる
         textField.resignFirstResponder()
         
         return true
+    }
+}
+
+
+// MARK: - SearchViewDelegate
+extension SearchViewController: SearchViewDelegate {
+    // SearchViewにかえってきた値をsearchFieldにセットする
+    func setupTextFieldValue(_ value: String) {
+        searchField.text = value
     }
 }

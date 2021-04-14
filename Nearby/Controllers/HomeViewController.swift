@@ -258,7 +258,7 @@ extension HomeViewController: UICollectionViewDelegate {
         switch indexPath.section {
         case 0:
             let searchResultViewController = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.reuseIdentifier) as! SearchResultViewController
-            searchResultViewController.initialize(keyword: Constants.categorys[indexPath.row])
+            searchResultViewController.initialize(keyword: Constants.categorys[indexPath.row], delegate: nil)
             navigationController?.pushViewController(searchResultViewController, animated: true)
         default:
             let shopDetailViewController = storyboard?.instantiateViewController(withIdentifier: ShopDetailViewController.reuseIdentifier) as! ShopDetailViewController

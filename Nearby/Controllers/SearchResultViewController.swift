@@ -40,6 +40,8 @@ class SearchResultViewController: UIViewController {
     private var selectedPrivateRoom: SelectedPrivateRoom = .notNarrowDown
     /// クルクル
     private let indicator = JGProgressHUD()
+    /// SearchViewDelegate
+    private weak var delegate: SearchViewDelegate?
     
     
     // MARK: - Methods
@@ -61,8 +63,10 @@ class SearchResultViewController: UIViewController {
     
     /// SearchResultViewControllerの初期化をする
     /// - Parameter keyword: 検索したキーワード
-    func initialize(keyword: String) {
-        self.keyword = keyword
+    /// - Parameter delegate: SearchViewDelegate
+    func initialize(keyword: String, delegate: SearchViewDelegate?) {
+        self.keyword  = keyword
+        self.delegate = delegate
     }
     
     /// TextFieldの設定を行う
@@ -218,6 +222,7 @@ class SearchResultViewController: UIViewController {
     
     // MARK: - @IBActions
     @IBAction private func back(_ sender: Any) {
+        delegate?.setupTextFieldValue(keyword)
         navigationController?.popViewController(animated: true)
     }
     
