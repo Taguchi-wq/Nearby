@@ -16,11 +16,6 @@ class SearchViewController: UIViewController {
     @IBOutlet private weak var categoryCollectionView: UICollectionView!
     
     
-    // MARK: - Propertys
-    /// カテゴリー
-    private let categorys = ["ハンバーガー", "ラーメン", "寿司", "中華料理", "居酒屋", "焼肉", "カフェ", "イタリアン", "デザート"]
-    
-    
     // MAEK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,12 +93,12 @@ extension SearchViewController {
 extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categorys.count
+        return Constants.categorys.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseIdentifier, for: indexPath) as! CategoryCell
-        categoryCell.initialize(imageName: categorys[indexPath.row])
+        categoryCell.initialize(imageName: Constants.categorys[indexPath.row])
         return categoryCell
     }
     
@@ -113,7 +108,7 @@ extension SearchViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        transitionSearchResultViewController(keyword: categorys[indexPath.row])
+        transitionSearchResultViewController(keyword: Constants.categorys[indexPath.row])
         searchField.resignFirstResponder()
     }
 }

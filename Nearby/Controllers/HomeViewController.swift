@@ -33,8 +33,6 @@ class HomeViewController: UIViewController {
     private var longitude = Double()
     /// お店のデータ
     private var shops: [Shop] = []
-    /// カテゴリー
-    private let categorys = ["ハンバーガー", "ラーメン", "寿司", "中華料理", "居酒屋", "焼肉", "カフェ", "イタリアン", "デザート"]
     /// クルクル
     private let indicator = JGProgressHUD()
     
@@ -231,7 +229,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return categorys.count
+            return Constants.categorys.count
         default:
             return shops.count
         }
@@ -241,7 +239,7 @@ extension HomeViewController: UICollectionViewDataSource {
         switch indexPath.section {
         case 0:
             let categoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseIdentifier, for: indexPath) as! CategoryCell
-            categoryCell.initialize(imageName: categorys[indexPath.row])
+            categoryCell.initialize(imageName: Constants.categorys[indexPath.row])
             return categoryCell
         default:
             let shopCell = collectionView.dequeueReusableCell(withReuseIdentifier: ShopCell.reuseIdentifier, for: indexPath) as! ShopCell
@@ -260,7 +258,7 @@ extension HomeViewController: UICollectionViewDelegate {
         switch indexPath.section {
         case 0:
             let searchResultViewController = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.reuseIdentifier) as! SearchResultViewController
-            searchResultViewController.initialize(keyword: categorys[indexPath.row])
+            searchResultViewController.initialize(keyword: Constants.categorys[indexPath.row])
             navigationController?.pushViewController(searchResultViewController, animated: true)
         default:
             let shopDetailViewController = storyboard?.instantiateViewController(withIdentifier: ShopDetailViewController.reuseIdentifier) as! ShopDetailViewController

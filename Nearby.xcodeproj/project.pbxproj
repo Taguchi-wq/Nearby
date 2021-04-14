@@ -58,6 +58,8 @@
 		7FD78C5E261F08EE00DE6DC1 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD78C5D261F08EE00DE6DC1 /* Reusable.swift */; };
 		7FD78C67261F3DF400DE6DC1 /* ConditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD78C65261F3DF400DE6DC1 /* ConditionCell.swift */; };
 		7FD78C68261F3DF400DE6DC1 /* ConditionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD78C66261F3DF400DE6DC1 /* ConditionCell.xib */; };
+		7FE9C4172626ED1200B12B7A /* SelectedRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE9C4162626ED1200B12B7A /* SelectedRange.swift */; };
+		7FE9C41C2626ED3000B12B7A /* SelectedPrivateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE9C41B2626ED3000B12B7A /* SelectedPrivateRoom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,8 @@
 		7FD78C5D261F08EE00DE6DC1 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		7FD78C65261F3DF400DE6DC1 /* ConditionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCell.swift; sourceTree = "<group>"; };
 		7FD78C66261F3DF400DE6DC1 /* ConditionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConditionCell.xib; sourceTree = "<group>"; };
+		7FE9C4162626ED1200B12B7A /* SelectedRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedRange.swift; sourceTree = "<group>"; };
+		7FE9C41B2626ED3000B12B7A /* SelectedPrivateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPrivateRoom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,9 +169,9 @@
 		7F17798F261FF1C0000AAC18 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				7FE9C4202626ED4000B12B7A /* Enum */,
 				7F177990261FF1DA000AAC18 /* NetworkManager.swift */,
 				7F3E8B9B26223E78003124DC /* Alert.swift */,
-				7F69EDE0262443B700BBAADC /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -359,6 +363,16 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		7FE9C4202626ED4000B12B7A /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				7F69EDE0262443B700BBAADC /* Constants.swift */,
+				7FE9C4162626ED1200B12B7A /* SelectedRange.swift */,
+				7FE9C41B2626ED3000B12B7A /* SelectedPrivateRoom.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -530,7 +544,9 @@
 				7F3E8BC526234046003124DC /* ShopCell.swift in Sources */,
 				7F3E8B782621FB6D003124DC /* ShopNameCell.swift in Sources */,
 				7FD49B0A261ECC4E002F1823 /* SceneDelegate.swift in Sources */,
+				7FE9C4172626ED1200B12B7A /* SelectedRange.swift in Sources */,
 				7FD78C54261F04D400DE6DC1 /* CategoryCell.swift in Sources */,
+				7FE9C41C2626ED3000B12B7A /* SelectedPrivateRoom.swift in Sources */,
 				7FD78C5E261F08EE00DE6DC1 /* Reusable.swift in Sources */,
 				7F3E8B85262227DF003124DC /* ShopInformationCell.swift in Sources */,
 				7F69EDE6262457F700BBAADC /* ConditionsDelegate.swift in Sources */,
