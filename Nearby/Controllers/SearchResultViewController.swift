@@ -50,6 +50,7 @@ class SearchResultViewController: UIViewController {
         
         setupTextField(searchTextField)
         setupCollectionView(shopsCollectionView)
+        setupMapView(mapView)
         checkLocationServices()
         displayShops(keyword: keyword, latitude: latitude, longitude: longitude, range: selectedRange, privateRoom: selectedPrivateRoom)
     }
@@ -89,6 +90,12 @@ class SearchResultViewController: UIViewController {
         collectionView.register(UINib(nibName: SearchResultShopCell.reuseIdentifier, bundle: nil),
                                 forCellWithReuseIdentifier: SearchResultShopCell.reuseIdentifier)
         collectionView.collectionViewLayout = createLayout()
+    }
+    
+    /// MapViewの設定を行う
+    /// - Parameter mapView: 設定したいmapView
+    private func setupMapView(_ mapView: MKMapView) {
+        mapView.delegate = self
     }
     
     /// 画面に店舗を表示する
@@ -265,12 +272,21 @@ extension SearchResultViewController {
 
 // MARK: - CLLocationManagerDelegate
 extension SearchResultViewController: CLLocationManagerDelegate {
-
     // 位置情報の認証状態が変更された時に呼ばれる
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
     }
-    
+}
+
+
+// MARK: - MKMapViewDelegate
+extension SearchResultViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let annotation = view.annotation else { return }
+        let location = annotation.coordinate
+        let region = MKCoordinateRegion.init(center: location, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        mapView.setRegion(region, animated: true)
+    }
 }
 
 
