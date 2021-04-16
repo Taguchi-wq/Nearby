@@ -167,6 +167,7 @@ class SearchResultViewController: UIViewController {
             
             let pin = MKPointAnnotation()
             pin.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            pin.title      = shops[i].name
             annotations.append(pin)
         }
         mapView.addAnnotations(annotations)
@@ -282,8 +283,8 @@ extension SearchResultViewController: CLLocationManagerDelegate {
 // MARK: - MKMapViewDelegate
 extension SearchResultViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        guard let annotation = view.annotation else { return }
-        let location = annotation.coordinate
+        guard let selectedAnnotation = view.annotation else { return }
+        let location = selectedAnnotation.coordinate
         let region = MKCoordinateRegion.init(center: location, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
     }
