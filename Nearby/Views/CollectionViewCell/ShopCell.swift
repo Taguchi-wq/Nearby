@@ -22,7 +22,7 @@ class ShopCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        thumbnailImageView.layer.cornerRadius = 10
+        thumbnailImageView.loadingImage()
     }
     
     /// ShopCellを初期化する
