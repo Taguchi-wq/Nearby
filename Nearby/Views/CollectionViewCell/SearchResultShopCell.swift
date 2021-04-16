@@ -25,6 +25,8 @@ class SearchResultShopCell: UICollectionViewCell {
         super.awakeFromNib()
         
         layer.cornerRadius = 10
+        layer.borderWidth  = 1
+        layer.borderColor  = UIColor.imageGray.cgColor
     }
     
     /// SearchResultShopCellを初期化する
