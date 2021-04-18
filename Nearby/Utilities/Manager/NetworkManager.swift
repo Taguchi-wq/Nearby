@@ -23,19 +23,19 @@ struct NetworkManager {
     static func makeShopSearchURLComponents(keyword: String, latitude: Double, longitude: Double, range: SelectedRange, privateRoom: SelectedPrivateRoom) -> URLComponents {
         
         var components = URLComponents()
-        components.scheme = "https"
-        components.host   = "webservice.recruit.co.jp"
-        components.path   = "/hotpepper/gourmet/v1/"
+        components.scheme = KeyManager.getValue("Scheme")
+        components.host   = KeyManager.getValue("Host")
+        components.path   = KeyManager.getValue("Path")
 
         components.queryItems = [
-            URLQueryItem(name: "key", value: "07bb9f8aa0569538"),
-            URLQueryItem(name: "format", value: "json"),
-            URLQueryItem(name: "count", value: "100"),
-            URLQueryItem(name: "keyword", value: keyword),
-            URLQueryItem(name: "lat", value: "\(latitude)"),
-            URLQueryItem(name: "lng", value: "\(longitude)"),
-            URLQueryItem(name: "range", value: "\(range.rawValue)"),
-            URLQueryItem(name: "private_room", value: "\(privateRoom.rawValue)")
+            URLQueryItem(name: "key",          value: KeyManager.getValue("Key")),
+            URLQueryItem(name: "format",       value: KeyManager.getValue("Format")),
+            URLQueryItem(name: "count",        value: KeyManager.getValue("Count")),
+            URLQueryItem(name: "keyword",      value: keyword),
+            URLQueryItem(name: "lat",          value: String(latitude)),
+            URLQueryItem(name: "lng",          value: String(longitude)),
+            URLQueryItem(name: "range",        value: String(range.rawValue)),
+            URLQueryItem(name: "private_room", value: String(privateRoom.rawValue))
         ]
         
         return components
@@ -86,7 +86,7 @@ struct NetworkManager {
                 }
                 
             } catch {
-                print(error)
+                completion(.failure(.invalidAPIKey))
             }
             
         }.resume()

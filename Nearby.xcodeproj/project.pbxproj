@@ -39,6 +39,8 @@
 		7F69EDE1262443B700BBAADC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F69EDE0262443B700BBAADC /* Constants.swift */; };
 		7F69EDE6262457F700BBAADC /* ConditionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F69EDE5262457F700BBAADC /* ConditionsDelegate.swift */; };
 		7F69EDF42625B27D00BBAADC /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 7F69EDF32625B27D00BBAADC /* JGProgressHUD */; };
+		7F741724262BFDBE00C830C3 /* KeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F741723262BFDBE00C830C3 /* KeyManager.swift */; };
+		7F741731262BFE8400C830C3 /* URL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F741730262BFE8400C830C3 /* URL.plist */; };
 		7F82176F2621D51D0068ADD4 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82176E2621D51D0068ADD4 /* UIImageView+Extension.swift */; };
 		7FC958A226241E5E00BA369B /* SearchConditions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FC958A126241E5D00BA369B /* SearchConditions.storyboard */; };
 		7FC958A72624261B00BA369B /* SearchConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC958A62624261B00BA369B /* SearchConditionsViewController.swift */; };
@@ -113,6 +115,8 @@
 		7F4F5A0B2629AE1E00145B72 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7F69EDE0262443B700BBAADC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F69EDE5262457F700BBAADC /* ConditionsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsDelegate.swift; sourceTree = "<group>"; };
+		7F741723262BFDBE00C830C3 /* KeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyManager.swift; sourceTree = "<group>"; };
+		7F741730262BFE8400C830C3 /* URL.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = URL.plist; sourceTree = "<group>"; };
 		7F82176E2621D51D0068ADD4 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		7FC958A126241E5D00BA369B /* SearchConditions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchConditions.storyboard; sourceTree = "<group>"; };
 		7FC958A62624261B00BA369B /* SearchConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConditionsViewController.swift; sourceTree = "<group>"; };
@@ -173,8 +177,8 @@
 		7F17798F261FF1C0000AAC18 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				7F741735262C06E900C830C3 /* Manager */,
 				7FE9C4202626ED4000B12B7A /* Enum */,
-				7F177990261FF1DA000AAC18 /* NetworkManager.swift */,
 				7F3E8B9B26223E78003124DC /* Alert.swift */,
 			);
 			path = Utilities;
@@ -218,6 +222,15 @@
 			path = ShopDetail;
 			sourceTree = "<group>";
 		};
+		7F741735262C06E900C830C3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7F177990261FF1DA000AAC18 /* NetworkManager.swift */,
+				7F741723262BFDBE00C830C3 /* KeyManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		7F8217732621D5290068ADD4 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +272,7 @@
 				7FD4F9E32621D00100B2E25F /* Extensions */,
 				7FD49B10261ECC50002F1823 /* Assets.xcassets */,
 				7FD49B15261ECC50002F1823 /* Info.plist */,
+				7F741730262BFE8400C830C3 /* URL.plist */,
 			);
 			path = Nearby;
 			sourceTree = "<group>";
@@ -492,6 +506,7 @@
 			files = (
 				7F3E8B602621EEC9003124DC /* ShopDetail.storyboard in Resources */,
 				7F3E8B792621FB6D003124DC /* ShopNameCell.xib in Resources */,
+				7F741731262BFE8400C830C3 /* URL.plist in Resources */,
 				7FD78C55261F04D400DE6DC1 /* CategoryCell.xib in Resources */,
 				7F3E8B722621F140003124DC /* ShopThumbnailCell.xib in Resources */,
 				7FD78C68261F3DF400DE6DC1 /* ConditionCell.xib in Resources */,
@@ -547,6 +562,7 @@
 				7FD49B08261ECC4E002F1823 /* AppDelegate.swift in Sources */,
 				7F17799E261FF2A3000AAC18 /* Results.swift in Sources */,
 				7F177991261FF1DA000AAC18 /* NetworkManager.swift in Sources */,
+				7F741724262BFDBE00C830C3 /* KeyManager.swift in Sources */,
 				7F3E8BC526234046003124DC /* ShopCell.swift in Sources */,
 				7F3E8B782621FB6D003124DC /* ShopNameCell.swift in Sources */,
 				7FD49B0A261ECC4E002F1823 /* SceneDelegate.swift in Sources */,
