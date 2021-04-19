@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Scheme</key>
+	<string>https</string>
+	<key>Host</key>
+	<string>webservice.recruit.co.jp</string>
+	<key>Path</key>
+	<string>/hotpepper/gourmet/v1/</string>
+	<key>Key</key>
+	<string>YOUR_APIKEY</string>
+	<key>Format</key>
+	<string>json</string>
+	<key>Count</key>
+	<string>100</string>
+</dict>
+</plist>

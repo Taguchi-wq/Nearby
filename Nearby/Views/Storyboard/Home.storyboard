@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O4J-E2-bIe">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--近くのお店-->
+        <scene sceneID="y3a-pD-e8e">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="Kl3-og-kqU" customClass="HomeViewController" customModule="Nearby" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qyf-bJ-OsU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V24-qW-MBy">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ugk-W1-Wiy">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OEJ-YQ-hlj">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7R0-N7-oCr">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wyK-2U-cRR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="V24-qW-MBy" firstAttribute="top" secondItem="wyK-2U-cRR" secondAttribute="top" id="10I-Qg-rxh"/>
+                            <constraint firstItem="V24-qW-MBy" firstAttribute="bottom" secondItem="wyK-2U-cRR" secondAttribute="bottom" id="4hV-Xn-AyC"/>
+                            <constraint firstItem="V24-qW-MBy" firstAttribute="leading" secondItem="wyK-2U-cRR" secondAttribute="leading" id="Lan-cP-RKh"/>
+                            <constraint firstItem="V24-qW-MBy" firstAttribute="trailing" secondItem="wyK-2U-cRR" secondAttribute="trailing" id="y1k-az-qA5"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="ホーム" image="house.fill" catalog="system" id="8bk-lb-4pH"/>
+                    <navigationItem key="navigationItem" title="近くのお店" id="kha-Ol-X0g"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="shopsCollectionView" destination="V24-qW-MBy" id="bHP-yX-0MI"/>
+                        <segue destination="7yT-7F-7Vk" kind="show" id="Yd2-YV-P7J"/>
+                        <segue destination="ssJ-Iz-CM1" kind="show" id="cr8-Ei-iV3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sj9-36-8uM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1086.9565217391305" y="128.57142857142856"/>
+        </scene>
+        <!--SearchResult-->
+        <scene sceneID="GSs-A7-lpz">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SearchResultViewController" storyboardName="SearchResult" id="ssJ-Iz-CM1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nrj-Iu-bc5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b1y-u0-LqL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1882" y="-11"/>
+        </scene>
+        <!--ShopDetail-->
+        <scene sceneID="oI2-Dm-vy3">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ShopDetailViewController" storyboardName="ShopDetail" id="7yT-7F-7Vk" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ldr-El-fYf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1dP-lj-s4m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1872" y="240"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r0o-mT-epc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O4J-E2-bIe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="JUR-LZ-bRl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Kl3-og-kqU" kind="relationship" relationship="rootViewController" id="qgn-GC-0eR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tpp-kS-C7Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="176.81159420289856" y="128.57142857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
