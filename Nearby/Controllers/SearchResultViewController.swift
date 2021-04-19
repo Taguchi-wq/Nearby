@@ -287,6 +287,14 @@ extension SearchResultViewController: MKMapViewDelegate {
         let location = selectedAnnotation.coordinate
         let region = MKCoordinateRegion.init(center: location, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
+        
+        // もっといい書き方があるはず...
+        for (i, shop) in shops.enumerated() {
+            if shop.lat == location.latitude && shop.lng == location.longitude {
+                shopsCollectionView.scrollToItem(at: IndexPath(item: i, section: 0), at: .centeredHorizontally, animated: true)
+                break
+            }
+        }
     }
 }
 
